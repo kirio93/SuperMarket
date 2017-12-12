@@ -1,3 +1,40 @@
-<p>
-  register works!
-</p>
+<div align="center" class="log-reg">
+  <form class="example-container" (ngSubmit)="register()" #f="ngForm">
+    <h2 class="title-reg">
+      Register
+    </h2>
+    <mat-form-field>
+      <input matInput placeholder="Username" name="username" [(ngModel)]="user.username">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="password" placeholder="Password" name="password" [(ngModel)]="user.password">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Telefono" name="tel" [(ngModel)]="user.tel">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Indirizzo" name="via" [(ngModel)]="user.via">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="CAP" name="cap" [(ngModel)]="user.cap">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Città" name="citta" [(ngModel)]="user.citta">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Provincia" name="prov" [(ngModel)]="user.prov">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary">Register</button>
+
+  </form>
+
+  <button class="second-btn" mat-raised-button color="warn" routerLink="/login">GoBack</button>
+
+</div>

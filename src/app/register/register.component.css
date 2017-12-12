@@ -1,0 +1,23 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  max-width: 350px;
+}
+.mat-raised-button {
+  width: 25% !important;
+}
+
+.second-btn {
+  margin: 10px;
+}
+.log-reg {
+  margin-top: 25px;
+}
+
+.title-reg {
+  font-family: Roboto,"Helvetica Neue",sans-serif !important;
+  color: dodgerblue;
+}

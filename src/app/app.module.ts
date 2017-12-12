@@ -4,17 +4,20 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {FormsModule} from "@angular/forms";
-import {MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
+import {
+  MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatFormFieldModule, MatInputModule,
+  MatGridListModule, MatExpansionModule
+} from '@angular/material';
 import { AppRoutingModule } from './/app-routing.module';
 import { RegisterComponent } from './register/register.component';
 import { ListProductComponent } from './list-product/list-product.component';
-import {LoginService} from "./Providers/login.service";
-import {InterceptorService} from "./Providers/interceptor.service";
-import {AuthGuardService} from "./Providers/auth-guard.service";
-import {SharedService} from "./Providers/shared.service";
+import {LoginService} from './providers/login.service';
+import {InterceptorService} from './providers/interceptor.service';
+import {AuthGuardService} from './providers/auth-guard.service';
+import {SharedService} from './providers/shared.service';
 
 @NgModule({
   declarations: [
@@ -28,9 +31,14 @@ import {SharedService} from "./Providers/shared.service";
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-    MatButtonModule, MatCheckboxModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    MatInputModule,
     MatToolbarModule,
     MatMenuModule,
+    MatGridListModule,
+    MatExpansionModule,
     AppRoutingModule,
   ],
   providers: [LoginService,
