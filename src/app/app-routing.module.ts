@@ -3,7 +3,7 @@ import { RouterModule, Routes} from "@angular/router";
 import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
 import {ListProductComponent} from "./list-product/list-product.component";
-import {AuthGuardService} from "./Providers/auth-guard.service";
+import {AuthGuardService} from "./providers/auth-guard.service";
 
 
 const routes :Routes =[

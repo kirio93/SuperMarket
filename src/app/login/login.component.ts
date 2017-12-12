@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {LoginService} from "../Providers/login.service";
-import {SharedService} from "../Providers/shared.service";
+import {LoginService} from "../providers/login.service";
+import {SharedService} from "../providers/shared.service";
 import {Router} from "@angular/router";
 import {Location} from "@angular/common";
 @Component({

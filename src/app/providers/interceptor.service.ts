@@ -5,6 +5,10 @@ import {Observable} from "rxjs/Observable";
 @Injectable()
 export class InterceptorService implements HttpInterceptor {
 
+  constructor() {
+
+  }
+
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let token = localStorage.getItem('token');
     if (token != null)
@@ -15,7 +19,5 @@ export class InterceptorService implements HttpInterceptor {
     }else
       return next.handle(req);
   }
-
-  constructor() { }
 
 }
