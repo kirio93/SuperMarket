@@ -18,6 +18,7 @@ import {LoginService} from './providers/login.service';
 import {InterceptorService} from './providers/interceptor.service';
 import {AuthGuardService} from './providers/auth-guard.service';
 import {SharedService} from './providers/shared.service';
+import {ListProductService} from './providers/list-product.service';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,9 @@ import {SharedService} from './providers/shared.service';
       multi: true,
     },
     AuthGuardService,
-    SharedService,],
+    SharedService,
+    ListProductService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

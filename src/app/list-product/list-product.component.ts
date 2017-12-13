@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Prodotto} from '../model/prodotto';
 import {ListProductService} from '../providers/list-product.service';
+import {Location} from '@angular/common';
+
 
 @Component({
   selector: 'app-list-product',
