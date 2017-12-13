@@ -3,4 +3,5 @@ export class CartaCredito {
   numero: string;
   scadenza:string;
   ccv:string;
+  
 }
