@@ -29,6 +29,7 @@ export class AppComponent {
         localStorage.removeItem('token');
         this.logged = true;
         this.router.navigate(['login']);
+        
       });
     }
     sharedService.changeEmitted$.subscribe(text => {
