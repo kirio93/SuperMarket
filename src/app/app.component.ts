@@ -12,28 +12,30 @@ export class AppComponent {
   title = 'app';
   logged = false;
 
-  constructor(private loginService: LoginService, private router: Router, private sharedService : SharedService) {
-    let userLogger = localStorage.getItem('user');
-    if (userLogger != null)
+  constructor(private loginService: LoginService, private router: Router, private sharedService: SharedService) {
+    let userLogged = localStorage.getItem('user');
+    if (userLogged != null) {
       this.logged = true;
-    let token: string[] = atob(localStorage.getItem('token')).split(':');
-    let user = {username: token[0], password: token[1]};
-    this.loginService.login(user).subscribe(data => {
-      console.log('logged' + data);
-      localStorage.setItem('user', JSON.stringify(data));
-      localStorage.setItem('token', btoa(user.username + ':' + user.password));
-      this.logged = true;
-      this.router.navigate(['list-product']);
-    }, (err) => {
-      localStorage.removeItem('user');
-      localStorage.removeItem('token');
-      this.logged = true;
-      this.router.navigate(['login']);
-    });
+      let token: string[] = atob(localStorage.getItem('token')).split(':');
+      let user = {username: token[0], password: token[1]};
+      this.loginService.login(user).subscribe(data => {
+        console.log('logged' + data);
+        localStorage.setItem('user', JSON.stringify(data));
+        localStorage.setItem('token', btoa(user.username + ':' + user.password));
+        this.logged = true;
+        this.router.navigate(['list-product']);
+      }, (err) => {
+        localStorage.removeItem('user');
+        localStorage.removeItem('token');
+        this.logged = true;
+        this.router.navigate(['login']);
+        
+      });
+    }
     sharedService.changeEmitted$.subscribe(text => {
       console.log(text);
-      this.logged = true;
-    })
+      this.logged=true;
+    });
   }
 
   logout() {
