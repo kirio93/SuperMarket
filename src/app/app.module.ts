@@ -9,7 +9,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {
   MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatFormFieldModule, MatInputModule,
-  MatGridListModule, MatExpansionModule
+  MatGridListModule, MatExpansionModule, MatCardModule
 } from '@angular/material';
 import {AppRoutingModule} from './/app-routing.module';
 import {RegisterComponent} from './register/register.component';
@@ -32,6 +32,7 @@ import {ListProductService} from './providers/list-product.service';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    MatCardModule,
     MatButtonModule,
     MatCheckboxModule,
     MatFormFieldModule,

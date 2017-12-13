@@ -20,6 +20,7 @@ export class ListProductComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getall();
   }
 
   getall() {

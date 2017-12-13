@@ -1,3 +1,21 @@
-<p>
-  list-product works!
-</p>
+<div mat-grid-list  *ngFor="let c of listProdotti">
+ <mat-grid-tile cols="2">
+  <mat-card>
+    <mat-card-header>
+      <div mat-card-avatar>
+        <img mat-card-image src="{{c.img}}"></div>
+      <mat-card-title>{{c.nome}}&nbsp;{{c.marca}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-card-title-group>
+        <a (click)="selectedItem(c)" routerLink="/product/getbyid/{{c.id}}">
+          <span class="glyphicon glyphicon-eye-open"></span></a>Prezzo: &euro; {{c.prezzo}}
+
+        <a (click)="aggiungiCarello(c)" routerLink="/product/buy"><span
+          class="glyphicon glyphicon-shopping-cart"></span></a> Disponibilità: {{c.quantita}}
+      </mat-card-title-group>
+
+    </mat-card-content>
+  </mat-card>
+ </mat-grid-tile>
+</div>

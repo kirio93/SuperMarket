@@ -1,0 +1,37 @@
+mat-grid-tile {
+  background: #d3e6d2;
+  gutterSize: 10px;
+
+}
+.example-card {
+  width : 450px ;
+}
+.mat-card {
+  transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+  display: block;
+  position: relative;
+  padding: 24px;
+  border-radius: 2px;
+  margin-top: 5px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+.mat-card-image:first-child {
+  margin-top: 1px;
+}
+.mat-card-image {
+  margin-top: 2px;
+  margin-left: 1px;
+  width: calc(100% + 1px);
+  height: calc(100% + 1px);
+}
+.div mat {
+  background-color: aqua;
+}
+.mat-card-title-group {
+  margin-left: 3px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 -8px;
+}
