@@ -14,8 +14,9 @@
   margin: 10px;
 }
 .mat-grid-tile .mat-grid-tile-footer, .mat-grid-tile .mat-grid-tile-header{
-  background: rgba(185, 185, 182, 0.89) !important;
-  color: black;
+  background: rgb(253, 255, 255) !important;
+  color: #0000ff;
+  height: 59px;
 }
 
 
@@ -36,64 +37,3 @@
 .icons{
   text-align: right;
 }
-/**
-.mat-grid-tile  {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  padding: 5px!important;
-  margin: 3px!important;
-  justify-content: space-between;
-}
-
-
-.example-card {
-  width: 50px;
-    height: 50px;
-}
-
-.mat-card {
-  transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
-  display: block;
-  position: static;
- padding: 20px;
-  border-radius: 2px;
-  margin-top: 10px;
-  margin-left: 10px;
-  margin-bottom: 0px;
-  margin-right: 10px;
-  background: #ffffff;
-}
-
-.mat-card-image:first-child {
-  margin-top: 1px;
-}
-
-.mat-card-image {
-  margin-top: 2px;
-  margin-left: 1px;
-  width: calc(100% + 1px);
-  height: calc(100% + 1px);
-}
-
-.div mat {
-  background-color: aqua;
-}
-
-.mat-card-title-group {
-  margin-left: 3px;
-  display: flex;
-  justify-content: space-between;
-  margin: 0 -8px;
-}
-element.style {
-  width: 250px;
-  height: 250px;
-}
-*/

@@ -1,8 +1,7 @@
-<div class="media">
-  <mat-grid-list  cols="3" rowHeight="1:1" gutterSize="50">
-    <mat-grid-tile *ngFor="let prodotto of listProdotti"
-                   data-toggle="modal" data-target="#myModal" (click)="seletProdotto(prodotto)">
-      <div class="media-body">
+<mat-grid-list cols="4" rowHeight="1:1" gutterSize="50">
+  <mat-grid-tile *ngFor="let prodotto of listProdotti"
+                 (click)="seletProdotto(prodotto)">
+    <div class="media-body">
       <img class="preview" src="{{prodotto.img}}">
 
       <mat-grid-tile-header>
@@ -14,27 +13,7 @@
           <span>Prezzo: &euro; &nbsp;{{prodotto.prezzoUnitario}} &nbsp;al&nbsp; {{prodotto.unita}}</span>
         </p>
       </mat-grid-tile-footer>
-      </div>
-    </mat-grid-tile>
-  </mat-grid-list>
-
-</div>
-
-<div class="modal fade" id="myModal" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">{{prodotto.nome}}</h4>
-      </div>
-      <div class="modal-body">
-        <p><span></span>Prezzo: {{prodotto.prezzoUnitario}}</p>
-
-      </div>
-      <div class="modal-footer">
-
-        <button type="button" class="btn btn-default close" data-dismiss="modal">Close</button>
-      </div>
     </div>
-  </div>
-</div>
+  </mat-grid-tile>
+</mat-grid-list>
+
