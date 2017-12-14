@@ -1,37 +1,99 @@
-mat-grid-tile {
-  background: #d3e6d2;
-  gutterSize: 10px;
+.info {
+  color: rgba(0, 0, 0, 0.43);
+  padding-right: 50px;
+  text-alig: right;
+  display: inline-block;
+  font-weight: bold;
+}
 
+.border{
+  border: groove;
+  border-radius: 5px;
 }
+.mat-grid-list{
+  margin: 10px;
+}
+.mat-grid-tile .mat-grid-tile-footer, .mat-grid-tile .mat-grid-tile-header{
+  background: rgba(185, 185, 182, 0.89) !important;
+  color: black;
+}
+
+
+.preview{
+  width: 100%;
+  height: auto;
+  opacity: 0.7;
+}
+
+.preview:hover{
+  width: 100%;
+  height: auto;
+  opacity: 1;
+}
+.background {
+  background-image: url("http://www.powerpointhintergrund.com/uploads/modern-floral-background-31.jpeg");
+}
+.icons{
+  text-align: right;
+}
+/**
+.mat-grid-tile  {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 5px!important;
+  margin: 3px!important;
+  justify-content: space-between;
+}
+
+
 .example-card {
-  width : 450px ;
+  width: 50px;
+    height: 50px;
 }
+
 .mat-card {
-  transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+  transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
   display: block;
-  position: relative;
-  padding: 24px;
+  position: static;
+ padding: 20px;
   border-radius: 2px;
-  margin-top: 5px;
-  margin-left: 20px;
-  margin-bottom: 20px;
-  margin-right: 20px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 0px;
+  margin-right: 10px;
+  background: #ffffff;
 }
+
 .mat-card-image:first-child {
   margin-top: 1px;
 }
+
 .mat-card-image {
   margin-top: 2px;
   margin-left: 1px;
   width: calc(100% + 1px);
   height: calc(100% + 1px);
 }
+
 .div mat {
   background-color: aqua;
 }
+
 .mat-card-title-group {
   margin-left: 3px;
   display: flex;
   justify-content: space-between;
   margin: 0 -8px;
 }
+element.style {
+  width: 250px;
+  height: 250px;
+}
+*/

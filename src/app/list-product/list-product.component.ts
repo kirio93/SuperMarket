@@ -1,7 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {Prodotto} from '../model/prodotto';
 import {ListProductService} from '../providers/list-product.service';
 import {Location} from '@angular/common';
+
+
 
 
 @Component({
@@ -11,17 +13,20 @@ import {Location} from '@angular/common';
 })
 export class ListProductComponent implements OnInit {
 
-  listProdotti: Array<Prodotto>= new Array();
-  carello: Array<Prodotto>=new Array();
-  prodotto: Prodotto;
-  listaStorico:Array<Prodotto>= Array();
+  listProdotti: Array<Prodotto>= [];
+  carello: Array<Prodotto>=[];
+  prodotto: Prodotto = new Prodotto();
+  listaStorico:Array<Prodotto>= [];
 
-  constructor(private prodottiService: ListProductService, private location: Location) {
+
+  constructor(private prodottiService: ListProductService,
+              private location: Location) {
   }
 
   ngOnInit() {
     this.getall();
   }
+
 
   getall() {
     this.prodottiService.getall().subscribe(data => {
@@ -30,10 +35,8 @@ export class ListProductComponent implements OnInit {
     });
   }
 
-  seletProdotto(idProdotto){
-    this.prodottiService.findProdottoById(idProdotto).subscribe(data=>{
-      this.prodotto=data
-    });
+  seletProdotto(prodotto :Prodotto){
+      this.prodotto=prodotto;
   }
 
 
@@ -60,3 +63,4 @@ export class ListProductComponent implements OnInit {
     })
   }
 }
+

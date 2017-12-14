@@ -1,21 +1,40 @@
-<div mat-grid-list  *ngFor="let c of listProdotti">
- <mat-grid-tile cols="2">
-  <mat-card>
-    <mat-card-header>
-      <div mat-card-avatar>
-        <img mat-card-image src="{{c.img}}"></div>
-      <mat-card-title>{{c.nome}}&nbsp;{{c.marca}}</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <mat-card-title-group>
-        <a (click)="selectedItem(c)" routerLink="/product/getbyid/{{c.id}}">
-          <span class="glyphicon glyphicon-eye-open"></span></a>Prezzo: &euro; {{c.prezzo}}
+<mat class="media">
+  <mat-grid-list  cols="3" rowHeight="1:1" gutterSize="50">
+    <mat-grid-tile *ngFor="let prodotto of listProdotti"
+                   data-toggle="modal" data-target="#myModal" (click)="seletProdotto(prodotto)">
+      <div class="media-body">
+      <img class="preview" src="{{prodotto.img}}">
 
-        <a (click)="aggiungiCarello(c)" routerLink="/product/buy"><span
-          class="glyphicon glyphicon-shopping-cart"></span></a> Disponibilità: {{c.quantita}}
-      </mat-card-title-group>
+      <mat-grid-tile-header>
+        <p class="media-heading">{{prodotto.nome}}</p>
+      </mat-grid-tile-header>
 
-    </mat-card-content>
-  </mat-card>
- </mat-grid-tile>
+      <mat-grid-tile-footer>
+        <p>
+          <span>Prezzo: &euro; &nbsp;{{prodotto.prezzoUnitario}} &nbsp;al&nbsp; {{prodotto.unita}}</span>
+        </p>
+      </mat-grid-tile-footer>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+</mat>
+
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">{{prodotto.nome}}</h4>
+      </div>
+      <div class="modal-body">
+        <p><span></span>Prezzo: {{prodotto.prezzoUnitario}}</p>
+
+      </div>
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-default close" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
