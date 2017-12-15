@@ -1,6 +1,7 @@
 <mat-grid-list cols="4" rowHeight="1:1" gutterSize="50">
   <mat-grid-tile *ngFor="let prodotto of listProdotti"
-                 (click)="seletProdotto(prodotto)">
+                 (click)="selectProdotto(prodotto)">
+    
     <div class="media-body">
       <img class="preview" src="{{prodotto.img}}">
 
