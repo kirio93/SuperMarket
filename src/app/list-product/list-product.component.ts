@@ -14,7 +14,7 @@ import {Location} from '@angular/common';
 export class ListProductComponent implements OnInit {
 
   listProdotti: Array<Prodotto>= [];
-  carello: Array<Prodotto>=[];
+  carrello: Array<Prodotto>=[];
   prodotto: Prodotto = new Prodotto();
   listaStorico:Array<Prodotto>= [];
 
@@ -35,7 +35,7 @@ export class ListProductComponent implements OnInit {
     });
   }
 
-  seletProdotto(prodotto :Prodotto){
+  selectProdotto(prodotto :Prodotto){
       this.prodotto=prodotto;
   }
 
