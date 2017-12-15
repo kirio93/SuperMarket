@@ -1,0 +1,41 @@
+<a href="/gp/cart/view.html/ref=nav_cart" aria-label="0 articoli nel carrello" class="nav-a nav-a-2" id="nav-cart" tabindex="28">
+  <span aria-hidden="true" class="nav-line-1"> </span>
+  <span aria-hidden="true" class="nav-line-2">Carrello
+    <span class="nav-icon nav-arrow"></span></span>
+  <span class="nav-cart-icon nav-sprite"></span>
+  <span id="nav-cart-count" aria-hidden="true" class="nav-cart-count nav-cart-0">0</span></a>
+
+<table class="customers " >
+  <tr>
+    <th></th>
+    <th>Prodotto</th>
+    <th>      </th>
+
+  </tr>
+  <tr *ngFor="let prodotto of listaCarrello">
+    <td></td>
+    <td>{{prodotto.nome}}</td>
+    <td>&euro;&nbsp;{{prodotto.prezzoUnitario}} <br>
+      <select name="quantity" autocomplete="off" id="quantity" tabindex="-1" class="a-native-dropdown">
+        <option selected>1</option>
+        <option selected>2</option>
+        <option selected>3</option>
+        <option selected>4</option>
+        <option selected>5</option>
+        <option selected>6</option>
+        <option selected>7</option>
+        <option selected>8</option>
+        <option selected>9</option>
+        <option selected>10</option>
+        <option selected>11</option>
+        <option selected>12</option>
+        <option selected>13</option>
+        <option selected>14</option>
+        <option selected>15</option>
+        <option selected>16</option>
+      </select> </td>
+
+  </tr>
+
+</table>
+
