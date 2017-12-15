@@ -8,7 +8,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {
   MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatFormFieldModule, MatInputModule,
-  MatGridListModule, MatExpansionModule, MatCardModule, MatListModule, MatStepperModule
+  MatGridListModule, MatExpansionModule, MatCardModule, MatListModule, MatStepperModule, MatIconModule
 } from '@angular/material';
 import {AppRoutingModule} from './/app-routing.module';
 import {RegisterComponent} from './register/register.component';
@@ -45,7 +45,8 @@ import {CarrelloComponent} from './carrello/carrello.component';
     MatExpansionModule,
     AppRoutingModule,
     MatListModule,
-    MatStepperModule
+    MatStepperModule,
+    MatIconModule
 
   ],
   providers: [

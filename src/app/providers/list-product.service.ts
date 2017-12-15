@@ -4,6 +4,7 @@ import {BACKEND_URL} from '../utill';
 import {hasCommentAfterPosition} from 'tslint';
 import {Observable} from 'rxjs/Observable';
 import {Prodotto} from '../model/prodotto';
+import {CartaCredito} from '../model/cartaCredito';
 
 
 const httpOptions ={
@@ -66,5 +67,18 @@ export class ListProductService {
   deleteProdotto(idProdotto) {
     return this.http.delete(BACKEND_URL+'/delete/'+idProdotto,httpOptions);
   }
+
+  saveOrUpdateCard(cartaCredito) {
+    return this.http.post(BACKEND_URL+'/saveupdate', cartaCredito,httpOptions);
+  }
+
+  getAllCard() : Observable<CartaCredito[]> {
+    return this.http.get<CartaCredito[]>(BACKEND_URL+'/getall',httpOptions);
+  }
+
+  deleteCard (idCarta){
+    return this.http.delete(BACKEND_URL+'/deletecard/'+idCarta,httpOptions);
+  }
+
 
 }

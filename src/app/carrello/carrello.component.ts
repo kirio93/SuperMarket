@@ -5,6 +5,7 @@ import {Location} from '@angular/common';
 import {LoginService} from '../providers/login.service';
 import {CartaCredito} from '../model/cartaCredito';
 import {Prodotto} from '../model/prodotto';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 
 @Component({
@@ -14,18 +15,24 @@ import {Prodotto} from '../model/prodotto';
 })
 export class CarrelloComponent implements OnInit {
 
-  listaCarrello : Prodotto[] =[];
+  listaCarrello: Prodotto[] = [];
   carte: CartaCredito[] = [];
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
 
-
-  constructor(private prodottiService: ListProductService, private utente: LoginService,
+  constructor(private prodottiService: ListProductService, private utente: LoginService, private _formBuilder: FormBuilder,
               private location: Location) {
     this.getall();
 
   }
 
   ngOnInit() {
-
+    this.firstFormGroup = this._formBuilder.group({
+      firstCtrl: ['', Validators.required]
+    });
+    this.secondFormGroup = this._formBuilder.group({
+      secondCtrl: ['', Validators.required]
+    });
   }
 
   getall() {
@@ -59,9 +66,17 @@ export class CarrelloComponent implements OnInit {
     this.prodottiService.acquisti(this.listaCarrello, idCarta);
   }
 
-  /**listaCarte(idUtente) {
-    this.utente.carte(idUtente).subscribe( data=>{
-      this.carte=data;
+  listaCarte() {
+    this.prodottiService.getAllCard().subscribe(data => {
+      this.carte = data;
     });
-}*/
+  }
+
+  eliminaCarta(idCarta) {
+    this.prodottiService.deleteCard(idCarta);
+  }
+
+  saveCarta(carta){
+    this.prodottiService.saveOrUpdateCard(carta);
+  }
 }
