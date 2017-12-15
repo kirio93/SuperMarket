@@ -32,3 +32,11 @@
   line-height: 1;
   max-height: 50px;
 }
+.register-bkg{
+  background: url("https://s3.amazonaws.com/secretsaucefiles/photos/images/000/116/915/large/20160115-things-never-to-but-at-supermarket-.jpg?1485407745");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+#wrapper {
+  min-height: 100vh;
+}

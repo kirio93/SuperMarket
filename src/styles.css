@@ -11,12 +11,7 @@ body {
   background:#f4f4f4 ;
   font-family: 'open sans', sans-serif;
 }
-.form-box{
-  background: #fff;
-  margin: 30px auto;
-  max-width: 500px;
-  box-shadow: 0 3px 6px 0px rgba(0,0,0,0.16), 0 3px 6px 0px rgba(0,0,0,0.23);
-}
+
 form#login-form {
   overflow: hidden;
   position: relative;
@@ -159,9 +154,4 @@ input.btn[type="submit"]:hover {
 }
 
 
-body{
-  background: url("https://s3.amazonaws.com/secretsaucefiles/photos/images/000/116/915/large/20160115-things-never-to-but-at-supermarket-.jpg?1485407745");
-  background-size: cover;
-  background-repeat: no-repeat;
 
-}

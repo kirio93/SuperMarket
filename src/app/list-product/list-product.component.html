@@ -1,19 +1,59 @@
-<mat-grid-list cols="4" rowHeight="1:1" gutterSize="50">
-  <mat-grid-tile *ngFor="let prodotto of listProdotti"
-                 (click)="seletProdotto(prodotto)">
+<mat-card>
+
+  <mat-card-content >
+    <mat-grid-list cols="4"  fxLayout="row" rowHeight="300px" class="prova">
+      <mat-grid-tile *ngFor="let prodotto of listProdotti" (click)="seletProdotto(prodotto)" class="marg">
+        <img [alt]="prodotto.marca" src="{{prodotto.img}}">
+        <mat-grid-tile-footer>
+          <h3 mat-line>{{prodotto.nome}}</h3>
+          <span mat-line>{{prodotto.marca}}</span>
+          <span>Prezzo: &euro; &nbsp;{{prodotto.prezzoUnitario}} &nbsp;al&nbsp; {{prodotto.unita}}</span>
+        <br><button mat-fab class="mat-raised-button" (click)="acquisti()">Acquista
+          </button>
+        </mat-grid-tile-footer>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-card-content>
+</mat-card>
+
+
+
+
+
+
+<!--<mat-grid-list cols="5" rowHeight="1:1" gutterSize="4" >
+
     <div class="media-body">
-      <img class="preview" src="{{prodotto.img}}">
+
 
       <mat-grid-tile-header>
-        <p class="media-heading">{{prodotto.nome}}</p>
+        <p class="media-heading"></p>
       </mat-grid-tile-header>
 
-      <mat-grid-tile-footer>
-        <p>
-          <span>Prezzo: &euro; &nbsp;{{prodotto.prezzoUnitario}} &nbsp;al&nbsp; {{prodotto.unita}}</span>
-        </p>
-      </mat-grid-tile-footer>
     </div>
-  </mat-grid-tile>
+
+</mat-grid-list>
+<mat-grid-list cols="4" rowHeight="basicRowHeight">
+<div class="demo-grid-list"> <mat-grid-tile *ngFor="let prodotto of listProdotti" (click)="seletProdotto(prodotto)">
+  <mat-card> <mat-card-content class="demo-basic-list">
+    <mat-card-title>{{prodotto.nome}}</mat-card-title>
+
+
+         <div class="di">
+          <img class="img" src="{{prodotto.img}}"></div>
+          <mat-grid-tile-footer>
+            <p>
+              <span>Prezzo: &euro; &nbsp;{{prodotto.prezzoUnitario}} &nbsp;al&nbsp; {{prodotto.unita}}</span>
+            </p>
+
+          </mat-grid-tile-footer>
+
+
+    </mat-card-content></mat-card>
+</mat-grid-tile>
+
+</div>
+
 </mat-grid-list>
 
+-->
