@@ -61,6 +61,4 @@ export class ListProductComponent implements OnInit {
     this.prodottiService.categoriaDisponibili(categoria, disponibili).subscribe(data=>{
       this.listProdotti=data;
     })
-  }
-}
-
+  }}

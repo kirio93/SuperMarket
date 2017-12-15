@@ -25,6 +25,7 @@
 }
 img {
   height: 200px;
+  max-width: 160px;
 }
 
 
@@ -32,7 +33,10 @@ img {
   margin: 16px 0;
 
 }
-
+.prova{
+  margin-left: 9px;
+  margin-top: 5px;
+}
 
 .demo-basic-list .mat-grid-tile {
   background: rgba(0, 0, 0, 0.32);

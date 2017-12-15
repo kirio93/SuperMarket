@@ -1,12 +1,12 @@
 <mat-card>
 
   <mat-card-content >
-    <mat-grid-list cols="4"  fxLayout="row" rowHeight="300px" class="prova">
+    <mat-grid-list cols="4" rowHeight="300px" class="prova">
       <mat-grid-tile *ngFor="let prodotto of listProdotti" (click)="seletProdotto(prodotto)" class="marg">
-        <img [alt]="prodotto.marca" src="{{prodotto.img}}">
-        <mat-grid-tile-footer>
-          <h3 mat-line>{{prodotto.nome}}</h3>
-          <span mat-line>{{prodotto.marca}}</span>
+       <mat-card-header><h3 mat-line>{{prodotto.nome}}</h3>
+         </mat-card-header>
+        <mat-card-content><img [alt]="prodotto.marca" src="{{prodotto.img}}"></mat-card-content>
+        <mat-grid-tile-footer><span mat-line>{{prodotto.marca}}</span>
           <span>Prezzo: &euro; &nbsp;{{prodotto.prezzoUnitario}} &nbsp;al&nbsp; {{prodotto.unita}}</span>
         <br><button mat-fab class="mat-raised-button" (click)="acquisti()">Acquista
           </button>
@@ -22,7 +22,7 @@
 
 
 <!--<mat-grid-list cols="5" rowHeight="1:1" gutterSize="4" >
-
+<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12"></div>
     <div class="media-body">
 
 
