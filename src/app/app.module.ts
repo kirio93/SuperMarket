@@ -44,8 +44,6 @@ import {ListProductService} from './providers/list-product.service';
     MatExpansionModule,
     AppRoutingModule,
     MatListModule,
-
-
   ],
   providers: [
     LoginService,

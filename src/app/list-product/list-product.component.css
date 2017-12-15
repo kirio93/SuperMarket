@@ -1,39 +1,39 @@
-.info {
-  color: rgba(0, 0, 0, 0.43);
-  padding-right: 50px;
-  text-alig: right;
-  display: inline-block;
-  font-weight: bold;
-}
 
-.border{
-  border: groove;
-  border-radius: 5px;
-}
-.mat-grid-list{
-  margin: 10px;
-}
 .mat-grid-tile .mat-grid-tile-footer, .mat-grid-tile .mat-grid-tile-header{
   background: rgb(253, 255, 255) !important;
   color: #0000ff;
-  height: 59px;
-}
-
-
-.preview{
-  width: 100%;
   height: auto;
-  opacity: 0.7;
+}
+.mat-grid-list{
+
 }
 
+
+.marg{
+  border:3px solid #0028fa;
+}
+
+
+
+.example-card {
+  width: 400px;
+}
 .preview:hover{
   width: 100%;
   height: auto;
   opacity: 1;
 }
-.background {
-  background-image: url("http://www.powerpointhintergrund.com/uploads/modern-floral-background-31.jpeg");
+img {
+  height: 200px;
 }
-.icons{
-  text-align: right;
+
+
+.mat-card {
+  margin: 16px 0;
+
+}
+
+
+.demo-basic-list .mat-grid-tile {
+  background: rgba(0, 0, 0, 0.32);
 }
