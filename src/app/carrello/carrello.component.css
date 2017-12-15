@@ -1,0 +1,29 @@
+
+.customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: separate;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+}
+
+.customers td, .customers th {
+  border: 1px solid #bbbbbb;
+  padding: 6px;
+}
+
+.customers tr{
+  background-color : rgba(245, 242, 255, 0.15);
+
+}
+
+.customers tr:hover {background-color: #eeeeee;}
+
+.customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgba(102, 169, 175, 0.58);
+  color: #000000;
+}

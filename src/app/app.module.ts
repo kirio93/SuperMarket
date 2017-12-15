@@ -8,7 +8,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {
   MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatFormFieldModule, MatInputModule,
-  MatGridListModule, MatExpansionModule, MatCardModule, MatListModule
+  MatGridListModule, MatExpansionModule, MatCardModule, MatListModule, MatStepperModule
 } from '@angular/material';
 import {AppRoutingModule} from './/app-routing.module';
 import {RegisterComponent} from './register/register.component';
@@ -18,14 +18,15 @@ import {InterceptorService} from './providers/interceptor.service';
 import {AuthGuardService} from './providers/auth-guard.service';
 import {SharedService} from './providers/shared.service';
 import {ListProductService} from './providers/list-product.service';
+import {CarrelloComponent} from './carrello/carrello.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    ListProductComponent
-
+    ListProductComponent,
+    CarrelloComponent
 
   ],
   imports: [
@@ -44,6 +45,8 @@ import {ListProductService} from './providers/list-product.service';
     MatExpansionModule,
     AppRoutingModule,
     MatListModule,
+    MatStepperModule
+
   ],
   providers: [
     LoginService,
@@ -60,3 +63,4 @@ import {ListProductService} from './providers/list-product.service';
 })
 export class AppModule {
 }
+
