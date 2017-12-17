@@ -15,14 +15,17 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class CarrelloComponent implements OnInit {
 
+  prodotto : Prodotto
   listaCarrello: Array<Prodotto> = [];
   carte: CartaCredito[] = [];
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
+  totale: number= 0;
 
   constructor(private prodottiService: ListProductService, private utente: LoginService, private _formBuilder: FormBuilder,
               private location: Location) {
     this.listaCarrello = JSON.parse(localStorage.getItem("carrello"));
+    this.calcolaTotale();
   }
 
   ngOnInit() {
@@ -32,6 +35,20 @@ export class CarrelloComponent implements OnInit {
     this.secondFormGroup = this._formBuilder.group({
       secondCtrl: ['', Validators.required]
     });
+    this.getCarrello();
+  }
+
+  getCarrello() {
+    this.listaCarrello = JSON.parse(localStorage.getItem("carrello"))
+    this.calcolaTotale();
+  }
+
+  calcolaTotale() {
+    this.totale = 0;
+    for (let p of this.listaCarrello) {
+      this.totale = this.totale += (p.prezzoUnitario * p.quantitaDaAcuistare);
+    }
+    console.log("totale: "+this.totale);
   }
 
   aggiungiCarello(prodotto) {
