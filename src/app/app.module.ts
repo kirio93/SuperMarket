@@ -5,7 +5,7 @@ import {AppComponent} from './app.component';
 import {LoginComponent} from './login/login.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {
   MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatFormFieldModule, MatInputModule,
   MatGridListModule, MatExpansionModule, MatCardModule, MatListModule, MatStepperModule, MatIconModule
@@ -46,7 +46,8 @@ import {CarrelloComponent} from './carrello/carrello.component';
     AppRoutingModule,
     MatListModule,
     MatStepperModule,
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule
 
   ],
   providers: [

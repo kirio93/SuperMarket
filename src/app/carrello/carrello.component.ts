@@ -15,15 +15,14 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class CarrelloComponent implements OnInit {
 
-  listaCarrello: Prodotto[] = [];
+  listaCarrello: Array<Prodotto> = [];
   carte: CartaCredito[] = [];
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
 
   constructor(private prodottiService: ListProductService, private utente: LoginService, private _formBuilder: FormBuilder,
               private location: Location) {
-    this.getall();
-
+    this.listaCarrello = JSON.parse(localStorage.getItem("carrello"));
   }
 
   ngOnInit() {
@@ -32,13 +31,6 @@ export class CarrelloComponent implements OnInit {
     });
     this.secondFormGroup = this._formBuilder.group({
       secondCtrl: ['', Validators.required]
-    });
-  }
-
-  getall() {
-    this.prodottiService.getall().subscribe(data => {
-      this.listaCarrello = data;
-      console.log(this.listaCarrello);
     });
   }
 

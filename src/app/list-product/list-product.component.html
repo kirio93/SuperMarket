@@ -1,14 +1,14 @@
 <mat-card>
 
   <mat-card-content >
-    <mat-grid-list cols="4" rowHeight="300px" class="prova">
-      <mat-grid-tile *ngFor="let prodotto of listProdotti" (click)="seletProdotto(prodotto)" class="marg">
+    <mat-grid-list cols="3" rowHeight="300px" class="prova">
+      <mat-grid-tile *ngFor="let prodotto of listProdotti" (click)="selectProdotto(prodotto)" class="marg">
        <mat-card-header><h3 mat-line>{{prodotto.nome}}</h3>
          </mat-card-header>
         <mat-card-content><img [alt]="prodotto.marca" src="{{prodotto.img}}"></mat-card-content>
         <mat-grid-tile-footer><span mat-line>{{prodotto.marca}}</span>
           <span>Prezzo: &euro; &nbsp;{{prodotto.prezzoUnitario}} &nbsp;al&nbsp; {{prodotto.unita}}</span>
-        <br><button mat-fab class="mat-raised-button" (click)="acquisti()">Acquista
+        <br><button mat-fab (click)="aggiungi(prodotto)">+
           </button>
         </mat-grid-tile-footer>
       </mat-grid-tile>

@@ -61,4 +61,11 @@ export class ListProductComponent implements OnInit {
     this.prodottiService.categoriaDisponibili(categoria, disponibili).subscribe(data=>{
       this.listProdotti=data;
     })
-  }}
+  }
+
+  aggiungi(prodotto: Prodotto) {
+    this.carrello.push(prodotto);
+    localStorage.setItem("carrello", JSON.stringify(this.carrello));
+    console.log("carrello: "+ localStorage.getItem("carrello").toString());
+  }
+}

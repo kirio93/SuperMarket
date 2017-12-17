@@ -10,9 +10,22 @@
 
 
 .marg{
-  border:3px solid #0028fa;
+  border:1px solid black;
+
 }
 
+.mat-grid-tile .mat-figure {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 5px;
+}
 
 
 .example-card {
@@ -40,4 +53,33 @@ img {
 
 .demo-basic-list .mat-grid-tile {
   background: rgba(0, 0, 0, 0.32);
+}
+
+.mat-card-content>:last-child:not(.mat-card-footer), .mat-card>:last-child:not(.mat-card-footer) {
+  margin-bottom: 0;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.mat-fab.mat-accent, .mat-mini-fab.mat-accent, .mat-raised-button.mat-accent {
+  background-color: #0028fa;
+  max-width: 40px;
+  max-height: 40px;
+  font-size: 25px;
+}
+
+.mat-fab .mat-button-wrapper {
+  padding: 0 !important;
+  display: inline-block;
+  line-height: 24px;
+}
+
+.mat-fab.mat-accent, .mat-mini-fab.mat-accent, .mat-raised-button.mat-accent {
+  color: #fff;
+  padding: 0 !important;
+}
+
+.mat-fab, .mat-icon-button, .mat-mini-fab, .mat-raised-button {
+  color: currentColor;
+  padding: 0 !important;
 }
