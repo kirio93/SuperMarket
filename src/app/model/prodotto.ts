@@ -16,6 +16,6 @@ export class Prodotto {
   prezzoIvato: number;
   img: string;
   offerta: number;
-
+  imgOfferta :string;
 
 }
