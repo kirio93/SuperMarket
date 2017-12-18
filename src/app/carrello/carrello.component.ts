@@ -45,26 +45,35 @@ export class CarrelloComponent implements OnInit {
 
   aggiungiCarello(prodotto) {
     this.listaCarrello.push(prodotto);
+    localStorage.setItem("carrello", JSON.stringify(this.listaCarrello));
+    this.calcolaTotale();
   }
 
   eliminaCarello(prodotto) {
     const i = this.listaCarrello.indexOf(prodotto);
-    this.listaCarrello.splice(1, i);
+    this.listaCarrello.splice(i, 1);
+    console.log('i '+i);
+    localStorage.setItem("carrello", JSON.stringify(this.listaCarrello));
     console.log('prodotto eliminato');
+    this.calcolaTotale();
   }
 
   modificaProdotto(prodotto) {
     const i = this.listaCarrello.indexOf(prodotto);
     this.listaCarrello.splice(1, i, prodotto);
     console.log(' prodotto modificato ');
+    this.calcolaTotale();
   }
 
   svuotaCarrello() {
     this.listaCarrello = [];
+    localStorage.setItem("carrello", JSON.stringify(this.listaCarrello));
+    this.calcolaTotale();
   }
 
   acquistaProdotti(idCarta) {
     this.prodottiService.acquisti(this.listaCarrello, idCarta);
+    this.svuotaCarrello();
   }
 
   listaCarte() {

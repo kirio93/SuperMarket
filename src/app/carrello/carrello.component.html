@@ -1,30 +1,37 @@
-
-<table class="customers " >
+<table class="customers ">
   <tr>
-    <th>  </th>
+    <th></th>
     <th>Prodotto</th>
-    <th>      </th>
+    <th></th>
+    <th style="width:20%"></th>
 
   </tr>
   <tr *ngFor="let prodotto of listaCarrello">
-    <td></td>
-    <td>{{prodotto.nome}} </td>
-    <td>&euro;&nbsp;{{prodotto.prezzoUnitario}} x
-      <input type="number" class="form-control" name="quantitaDaAcquistare" id="quantitaDaAcquistare" [(ngModel)]="prodotto.quantitaDaAcquistare">{{prodotto.quantitaDaAcquistare}}</td>
-
+    <td style="width:18%"><img class="imgCarrello" src="{{prodotto.img}}"></td>
+    <td style="width:40%">{{prodotto.nome}}</td>
+    <td style="width:27%">&euro;&nbsp;{{prodotto.prezzoUnitario}} x &nbsp;{{prodotto.quantitaDaAcquistare}}
+      <br><span class="glyphicon glyphicon-remove" (click)="eliminaCarello(prodotto)"></span>
+    </td>
+    <td style="width:15%"><input type="number" class="quantiacarrello" name="quantitaDaAcquistare" id="quantitaDaAcquistare"
+               [(ngModel)]="prodotto.quantitaDaAcquistare">
+    </td>
   </tr>
-
+<br><br>
 </table>
 
-<table class="customers " >
+<table class="totale">
   <tr>
-    <td>
+    <td style="width:55%">
       <h3>Totale: </h3>
+
+
     </td>
     <td>
-      {{totale}}
+      <h3>&euro;&nbsp;{{totale}} &nbsp;&nbsp;
+      <span class="glyphicon glyphicon-refresh" (click)="calcolaTotale()"></span>
+      </h3>
     </td>
-
+<br>
   </tr>
   <button mat-raised-button color="primary">Acquista</button>
 </table>
