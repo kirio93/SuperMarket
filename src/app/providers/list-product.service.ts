@@ -92,10 +92,7 @@ export class ListProductService {
   }
 
   modificaProdotto(prodotto) {
-    const i = this.carrello.indexOf(prodotto);
-    this.carrello.splice(1, i, prodotto);
-    localStorage.setItem('carrello', JSON.stringify(this.carrello));
-    console.log(' prodotto modificato ');
+    return this.http.post(BACKEND_URL+"/saveOrUpdate", httpOptions);
   }
 
   svuotaCarrello() {
