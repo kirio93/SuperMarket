@@ -13,6 +13,9 @@ const httpOptions ={
 @Injectable()
 export class ListProductService {
 
+
+  carrello: Prodotto[] = [];
+
   constructor(private http : HttpClient) { }
 
 
@@ -66,5 +69,37 @@ export class ListProductService {
    */
   deleteProdotto(idProdotto) {
     return this.http.delete(BACKEND_URL+'/delete/'+idProdotto,httpOptions);
+  }
+
+  /*******************************************/
+  /**Metodi per il carrello
+   *
+   */
+  leggiCarrello() {
+    this.carrello = JSON.parse(localStorage.getItem('carrello'));
+  }
+
+  aggiungiCarello(prodotto) {
+    this.carrello.push(prodotto);
+    localStorage.setItem('carrello', JSON.stringify(this.carrello));
+  }
+
+  eliminaCarello(prodotto) {
+    const i = this.carrello.indexOf(prodotto);
+    this.carrello.splice(1, i);
+    localStorage.setItem('carrello', JSON.stringify(this.carrello));
+    console.log('prodotto eliminato');
+  }
+
+  modificaProdotto(prodotto) {
+    const i = this.carrello.indexOf(prodotto);
+    this.carrello.splice(1, i, prodotto);
+    localStorage.setItem('carrello', JSON.stringify(this.carrello));
+    console.log(' prodotto modificato ');
+  }
+
+  svuotaCarrello() {
+    this.carrello = [];
+    localStorage.removeItem('carrello');
   }
 }

@@ -1,6 +1,44 @@
+
 .flex-spacer[_ngcontent-c1] {
   flex-grow: 1;
 }
 .dio{
   align-items: center!important;
+}
+
+
+:after, :before {
+  box-sizing: border-box;
+}
+
+.container-fluid {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.navbar-inverse {
+  background-color: rgb(63, 81, 181);
+  border-color: rgba(255, 255, 255, 0.29);
+}
+
+.navbar-inverse .navbar-nav>li>a  {
+  color: rgba(255, 255, 255, 0.87);
+}
+.navbar-inverse .navbar-brand {
+  color: rgba(255,255,255,.87);
+}
+.logo{
+
+  width: 50px;
+  height: auto;
+}
+
+li{
+  margin-left: 38px;
 }

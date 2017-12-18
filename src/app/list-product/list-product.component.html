@@ -1,14 +1,84 @@
+<div class="filtro">
+  Filtra per categoria
+  <select class="a-spacing-top-mini" style="vertical-align: baseline;" name="sort" id="sort"
+          onchange="" aria-labelledby="sort_by_text">
+    <option value="TUTTO">Tutto</option>
+    <option value="PROD_CASA">Casa</option>
+    <option value="ANIMALI">Animali</option>
+    <option value="ALIMENTI">Alimenti</option>
+    <option value="PROD_PERSONA">Persona</option>
+  </select>
+</div>
+<div>
+  <div class="row">
+    <div class="col-sm-4 col-md-3" *ngFor="let prodotto of listProdotti" (click)="selectProdotto(prodotto)"
+         data-toggle="modal" data-target="#myModel">
+      <div class="thumbnail">
+        <img src="{{prodotto.img}}">
+        <div class="caption">
+          <h3>{{prodotto.nome}}</h3>
+
+          <p><a href="#" mat-fab class="mat-raised-button">Aquista</a>
+            <span class="prezzo"> Prezzo: &nbsp;&euro;&nbsp;{{prodotto.prezzoUnitario}}</span>
+            <select name="quantity" autocomplete="off" id="quantity" tabindex="-1" class="a-native-dropdown">
+              <option selected>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+              <option>11</option>
+              <option>12</option>
+              <option>13</option>
+              <option>14</option>
+              <option>15</option>
+              <option>16</option>
+            </select>
+
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modale-title"> {{prodotto.nome}}&nbsp; Prodotto da:&nbsp;{{prodotto.marca}}</h4>
+      </div>
+      <div class="modal-body">
+
+
+      </div>
+      <div class="modal-footer">
+        <img type="button" src="../../assets/addcarrello.ico" (click)="addCarrello(selected)"
+             data-toggle="tooltip">
+        <span class="glyphicon glyphicon-trash"></span>
+
+        <button type="button" class="btn btn-default close" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--
 <mat-card>
+
   <mat-card-content >
-    <mat-grid-list cols="3" rowHeight="300px" class="prova">
-      <mat-grid-tile *ngFor="let prodotto of listProdotti" (click)="selectProdotto(prodotto)" class="marg">
+    <mat-grid-list cols="4" rowHeight="300px" class="prova">
+      <mat-grid-tile *ngFor="let prodotto of listProdotti" (click)="seletProdotto(prodotto)" class="marg">
        <mat-card-header><h3 mat-line>{{prodotto.nome}}</h3>
          </mat-card-header>
         <mat-card-content><img [alt]="prodotto.marca" src="{{prodotto.img}}"></mat-card-content>
         <mat-grid-tile-footer><span mat-line>{{prodotto.marca}}</span>
           <span>Prezzo: &euro; &nbsp;{{prodotto.prezzoUnitario}} &nbsp;al&nbsp; {{prodotto.unita}}</span>
-        <br>
-          <button mat-fab (click)="aggiungi(prodotto)">+
+        <br><button mat-fab class="mat-raised-button" (click)="acquisti()">Acquista
           </button>
         </mat-grid-tile-footer>
       </mat-grid-tile>

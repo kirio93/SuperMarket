@@ -1,14 +1,31 @@
-<mat-toolbar color="primary">
-  <span class="dio">SUPERMARKET</span><div _ngcontent-c1="" class="flex-spacer"></div>
-  <button mat-button  [matMenuTriggerFor]="menu">Menu</button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item routerLink="/login" *ngIf="!logged">Login</button>
-    <button mat-menu-item routerLink="/register" *ngIf="!logged">Registrati</button>
-    <button mat-menu-item (click)="logout()" *ngIf="logged" >Logout</button>
-    <button mat-menu-item routerLink="/list-product" *ngIf="logged">Prodotti</button>
-    <button mat-menu-item routerLink="/carrello" *ngIf="logged">Carrello</button>
-  </mat-menu>
-</mat-toolbar>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!-- <img class="logo" src="../assets/logonavbar.png"> &nbsp;-->
+      <a class="navbar-brand" href="/home">SUPERMARKET</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <!--  <li><a routerLink="/home">Home</a></li>-->
+        <li *ngIf="logged"><a routerLink="/list-product">Prodotti</a></li>
+
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li *ngIf="logged"><a routerLink="/carrello"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+        <li *ngIf="!logged"><a href="/register"><span class="glyphicon glyphicon glyphicon-edit"></span>Registrati</a></li>
+        <li *ngIf="logged"><a (click)="logout()"><span class="glyphicon glyphicon-user"></span> Logout</a></li>
+        <li *ngIf="!logged"><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
 
 <router-outlet></router-outlet>
 

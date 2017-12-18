@@ -19,6 +19,7 @@ import {AuthGuardService} from './providers/auth-guard.service';
 import {SharedService} from './providers/shared.service';
 import {ListProductService} from './providers/list-product.service';
 import {CarrelloComponent} from './carrello/carrello.component';
+import {CartaCreditoService} from './providers/carta-credito.service';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import {CarrelloComponent} from './carrello/carrello.component';
     AuthGuardService,
     SharedService,
     ListProductService,
+    CartaCreditoService
   ],
   bootstrap: [AppComponent]
 })
