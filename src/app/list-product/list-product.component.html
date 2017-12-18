@@ -24,8 +24,8 @@
 </div>
 
 
-
-<div class="filtro">
+<br>
+<div class="filtro" align="right" style="margin-right: 24px">
   Filtra per categoria
   <select class="a-spacing-top-mini" style="vertical-align: baseline;" name="sort" id="sort"
           onchange="" aria-labelledby="sort_by_text">
@@ -36,6 +36,7 @@
     <option value="PROD_PERSONA">Persona</option>
   </select>
 </div>
+<br>
 <div>
   <div class="row">
     <div class="col-sm-4 col-md-3" *ngFor="let prodotto of listProdotti" (click)="selectProdotto(prodotto)"
@@ -45,9 +46,10 @@
         <div class="caption">
           <h3>{{prodotto.nome}}</h3>
 
-          <p><button mat-fab class="mat-raised-button" (click)="aggiungi(prodotto)">Aggiungi</button>
-            <span class="prezzo"> Prezzo: &nbsp;&euro;&nbsp;{{prodotto.prezzoUnitario}}</span>
-            <select name="quantitaDaAcquistare" autocomplete="off" id="quantitaDaAcquistare" tabindex="-1" class="a-native-dropdown" [(ngModel)]="prodotto.quantitaDaAcquistare">
+          <p ><button mat-fab class="mat-raised-button" (click)="aggiungi(prodotto)">Aggiungi</button>
+
+            <span  class="prezzo">Prezzo: &euro; {{prodotto.prezzoUnitario}}</span>
+            <select  name="quantitaDaAcquistare" autocomplete="off" id="quantitaDaAcquistare" tabindex="-1" class="a-native-dropdown" [(ngModel)]="prodotto.quantitaDaAcquistare">
               <option value="1" selected>1</option>
               <option value="2">2</option>
               <option value="3">3</option>
