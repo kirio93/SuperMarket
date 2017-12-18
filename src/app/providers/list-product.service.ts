@@ -67,8 +67,4 @@ export class ListProductService {
   deleteProdotto(idProdotto) {
     return this.http.delete(BACKEND_URL+'/delete/'+idProdotto,httpOptions);
   }
-
-
-
-
 }

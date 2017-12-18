@@ -6,6 +6,7 @@ import {LoginService} from '../providers/login.service';
 import {CartaCredito} from '../model/cartaCredito';
 import {Prodotto} from '../model/prodotto';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {CartaCreditoService} from '../providers/carta-credito.service';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class CarrelloComponent implements OnInit {
   totale: number= 0;
 
   constructor(private prodottiService: ListProductService, private utente: LoginService, private _formBuilder: FormBuilder,
-              private location: Location) {
+              private location: Location, private cartaService : CartaCreditoService) {
     this.listaCarrello = JSON.parse(localStorage.getItem("carrello"));
     this.calcolaTotale();
   }
@@ -76,16 +77,16 @@ export class CarrelloComponent implements OnInit {
   }
 
   listaCarte() {
-    this.prodottiService.getAllCard().subscribe(data => {
+    this.cartaService.getAllCard().subscribe(data => {
       this.carte = data;
     });
   }
 
   eliminaCarta(idCarta) {
-    this.prodottiService.deleteCard(idCarta);
+    this.cartaService.deleteCard(idCarta);
   }
 
   saveCarta(carta){
-    this.prodottiService.saveOrUpdateCard(carta);
+    this.cartaService.saveOrUpdateCard(carta);
   }
 }
