@@ -16,7 +16,7 @@ import {CartaCreditoService} from '../providers/carta-credito.service';
 })
 export class CarrelloComponent implements OnInit {
 
-  prodotto : Prodotto
+  prodotto : Prodotto = new Prodotto;
   listaCarrello: Array<Prodotto> = [];
   carte: CartaCredito[] = [];
 
@@ -38,7 +38,7 @@ export class CarrelloComponent implements OnInit {
   calcolaTotale() {
     this.totale = 0;
     for (let p of this.listaCarrello) {
-      this.totale = this.totale += (p.prezzoUnitario * p.quantitaDaAcuistare);
+      this.totale = this.totale += (p.prezzoUnitario * p.quantitaDaAcquistare);
     }
     console.log("totale: "+this.totale);
   }

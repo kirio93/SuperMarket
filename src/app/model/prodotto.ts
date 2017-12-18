@@ -9,7 +9,7 @@ export class Prodotto {
   datadiScadenza: string;
   categoria: Categoria;
   quantitaDisponibile: number;
-  quantitaDaAcuistare: number;
+  quantitaDaAcquistare: number;
   unita: Unita;
   prezzoUnitario: number;
   prezzoSenzaIva: number;

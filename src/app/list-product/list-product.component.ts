@@ -64,6 +64,8 @@ export class ListProductComponent implements OnInit {
   }
 
   aggiungi(prodotto: Prodotto) {
+    prodotto.quantitaDaAcquistare = prodotto.quantitaDaAcquistare +1;
+    this.prodottiService.modificaProdotto(prodotto);
     console.log(prodotto);
     this.carrello.push(prodotto);
     localStorage.setItem("carrello", JSON.stringify(this.carrello));
