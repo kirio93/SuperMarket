@@ -7,7 +7,10 @@
 .mat-grid-list{
 
 }
-
+.mat-raised-button {
+  width: 16% !important;
+  margin-bottom: 15px;
+}
 
 .marg{
   border:3px solid #0028fa;
