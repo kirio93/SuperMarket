@@ -7,7 +7,8 @@
         <mat-card-content><img [alt]="prodotto.marca" src="{{prodotto.img}}"></mat-card-content>
         <mat-grid-tile-footer><span mat-line>{{prodotto.marca}}</span>
           <span>Prezzo: &euro; &nbsp;{{prodotto.prezzoUnitario}} &nbsp;al&nbsp; {{prodotto.unita}}</span>
-        <br><button mat-fab (click)="aggiungi(prodotto)">+
+        <br>
+          <button mat-fab (click)="aggiungi(prodotto)">+
           </button>
         </mat-grid-tile-footer>
       </mat-grid-tile>
