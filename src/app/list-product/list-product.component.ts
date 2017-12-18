@@ -64,6 +64,7 @@ export class ListProductComponent implements OnInit {
   }
 
   aggiungi(prodotto: Prodotto) {
+    console.log(prodotto);
     this.carrello.push(prodotto);
     localStorage.setItem("carrello", JSON.stringify(this.carrello));
     console.log("carrello: "+ localStorage.getItem("carrello").toString());

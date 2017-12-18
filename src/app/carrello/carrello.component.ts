@@ -24,17 +24,14 @@ export class CarrelloComponent implements OnInit {
 
   constructor(private prodottiService: ListProductService, private utente: LoginService,
               private location: Location, private cartaService : CartaCreditoService) {
-    this.listaCarrello = JSON.parse(localStorage.getItem("carrello"));
-    this.calcolaTotale();
   }
 
   ngOnInit() {
-
     this.getCarrello();
   }
 
   getCarrello() {
-    this.listaCarrello = JSON.parse(localStorage.getItem("carrello"))
+    this.listaCarrello = JSON.parse(localStorage.getItem("carrello"));
     this.calcolaTotale();
   }
 
