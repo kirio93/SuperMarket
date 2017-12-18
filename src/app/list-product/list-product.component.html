@@ -7,7 +7,7 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div *ngFor="let prodotto of listProdotti ; let k = index" [ngClass]="k == 0 ? 'item active' : 'item'">
-        <img src={{prodotto.imgOfferta}} alt="Event Image">
+        <img class="margini" src={{prodotto.imgOfferta}} alt="Event Image">
       </div>
     </div>
 

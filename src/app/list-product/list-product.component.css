@@ -28,6 +28,11 @@ img {
   max-width: 70%;
 }
 
+.margini{
+  display: block;
+  margin: auto;
+  width: 100%;
+}
 
 .mat-card {
   margin: 16px 0;
