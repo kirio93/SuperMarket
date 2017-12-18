@@ -8,6 +8,10 @@
   margin-top: 15px;
 }
 
+.form-control {
+  width: 20%;
+}
+
 .customers td, .customers th {
   border: 1px solid #bbbbbb;
   padding: 6px;

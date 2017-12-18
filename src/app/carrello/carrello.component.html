@@ -9,25 +9,8 @@
   <tr *ngFor="let prodotto of listaCarrello">
     <td></td>
     <td>{{prodotto.nome}} </td>
-    <td>&euro;&nbsp;{{prodotto.prezzoUnitario}} <br>
-      <select name="quantity" autocomplete="off" id="quantity" tabindex="-1" class="a-native-dropdown">
-        <option selected>1</option>
-        <option >2</option>
-        <option >3</option>
-        <option >4</option>
-        <option >5</option>
-        <option >6</option>
-        <option >7</option>
-        <option >8</option>
-        <option >9</option>
-        <option >10</option>
-        <option >11</option>
-        <option >12</option>
-        <option >13</option>
-        <option >14</option>
-        <option >15</option>
-        <option >16</option>
-      </select> </td>
+    <td>&euro;&nbsp;{{prodotto.prezzoUnitario}} x
+      <input type="number" class="form-control" name="quantitaDaAcquistare" id="quantitaDaAcquistare" [(ngModel)]="prodotto.quantitaDaAcquistare">{{prodotto.quantitaDaAcquistare}}</td>
 
   </tr>
 
