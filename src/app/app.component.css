@@ -1,5 +1,10 @@
+.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
+  background-color: rgb(0, 0, 243);
+}
 
-
+.navbar-inverse .navbar-toggle {
+  border-color: #f5f5f5;
+}
 
 .badge {
   display: inline-block;
@@ -19,10 +24,10 @@
 .flex-spacer[_ngcontent-c1] {
   flex-grow: 1;
 }
-.dio{
-  align-items: center!important;
-}
 
+.dio {
+  align-items: center !important;
+}
 
 :after, :before {
   box-sizing: border-box;
@@ -46,18 +51,20 @@
   z-index: 1000;
 }
 
-.navbar-inverse .navbar-nav>li>a  {
+.navbar-inverse .navbar-nav > li > a {
   color: rgba(255, 255, 255, 0.87);
 }
+
 .navbar-inverse .navbar-brand {
-  color: rgba(255,255,255,.87);
+  color: rgba(255, 255, 255, .87);
 }
-.logo{
+
+.logo {
 
   width: 50px;
   height: auto;
 }
 
-li{
+li {
   margin-left: 38px;
 }

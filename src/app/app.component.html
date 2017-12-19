@@ -17,9 +17,9 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li *ngIf="logged"><a routerLink="/carrello"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Carrello</a></li>
-        <li *ngIf="!logged"><a href="/register"><span class="glyphicon glyphicon glyphicon-edit"></span>Registrati</a></li>
-        <li *ngIf="logged"><a (click)="logout()"><span class="glyphicon glyphicon-user"></span> Logout</a></li>
-        <li *ngIf="!logged"><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li *ngIf="!logged"><a href="/register"><span class="glyphicon glyphicon glyphicon-edit"></span>&nbsp;Registrati</a></li>
+        <li *ngIf="logged"><a (click)="logout()"><span class="glyphicon glyphicon-user"></span>&nbsp; Logout</a></li>
+        <li *ngIf="!logged"><a href="/login"><span class="glyphicon glyphicon-log-in"></span>&nbsp; Login</a></li>
 
       </ul>
     </div>
