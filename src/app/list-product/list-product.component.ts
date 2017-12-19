@@ -16,6 +16,12 @@ export class ListProductComponent implements OnInit {
   prodotto: Prodotto = new Prodotto();
   listaStorico: Array<Prodotto> = [];
   listOfferta: Array<Prodotto> = [];
+  title: string = 'Conferma aggiunta';
+  message: string = 'Il prodotto è stato aggiunto al carrello';
+  confirmText = 'OK';
+  cancelText = 'Annulla';
+  confirmClicked: boolean = false;
+  cancelClicked: boolean = false;
 
 
   constructor(private prodottiService: ListProductService,
@@ -65,12 +71,14 @@ export class ListProductComponent implements OnInit {
   }
 
   aggiungi(prodotto: Prodotto) {
-    console.log(prodotto.quantitaDaAcquistare);
-    this.prodottiService.modificaProdotto(prodotto);
-    console.log(prodotto);
-    this.carrello.push(prodotto);
-    localStorage.setItem('carrello', JSON.stringify(this.carrello));
-    console.log('carrello: ' + localStorage.getItem('carrello').toString());
+    if (this.confirmClicked===true) {
+      console.log(prodotto.quantitaDaAcquistare);
+      this.prodottiService.modificaProdotto(prodotto);
+      console.log(prodotto);
+      this.carrello.push(prodotto);
+      localStorage.setItem('carrello', JSON.stringify(this.carrello));
+      console.log('carrello: ' + localStorage.getItem('carrello').toString());
+    } else {}
   }
 
   offerteDelGiorno() {

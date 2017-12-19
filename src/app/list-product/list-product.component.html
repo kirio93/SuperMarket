@@ -43,7 +43,13 @@
         <div class="caption">
           <h3>{{prodotto.nome}}</h3>
 
-          <p ><button mat-fab class="mat-raised-button" style="font-size: 12px!important;" (click)="aggiungi(prodotto)">Aggiungi</button>
+          <p ><button mat-fab class="mat-raised-button" style="font-size: 12px!important;"
+                      mwlConfirmationPopover
+                      [title]="title"
+                      [message]="message"
+                      placement="right"
+                      (confirm)="confirmClicked = true; aggiungi(prodotto)"
+                      (cancel)="cancelClicked = true">Aggiungi</button>
 
             <span  class="prezzo">Prezzo: &euro; {{prodotto.prezzoUnitario}}</span>
             <select  name="quantitaDaAcquistare" autocomplete="off" id="quantitaDaAcquistare" tabindex="1" class="a-native-dropdown" [(ngModel)]="prodotto.quantitaDaAcquistare">

@@ -20,6 +20,7 @@ import {SharedService} from './providers/shared.service';
 import {ListProductService} from './providers/list-product.service';
 import {CarrelloComponent} from './carrello/carrello.component';
 import {CartaCreditoService} from './providers/carta-credito.service';
+import {ConfirmationPopoverModule} from 'angular-confirmation-popover';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,9 @@ import {CartaCreditoService} from './providers/carta-credito.service';
     MatIconModule,
     ReactiveFormsModule,
     MatRadioModule,
-    
+    ConfirmationPopoverModule.forRoot({
+      confirmButtonType: 'danger' // set defaults here
+    })
 
   ],
   providers: [
