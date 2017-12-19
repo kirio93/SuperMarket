@@ -35,7 +35,7 @@
         </td>
         <br>
       </tr>
-      <button mat-raised-button matStepperNext color="primary">Acquista</button>
+      <button mat-raised-button matStepperNext color="primary">Paga</button>
       <br>
 
     </table>
@@ -102,7 +102,7 @@
     </mat-list>
 <br><br>
     <button mat-button matStepperPrevious>Back</button>
-    <button mat-button matStepperNext>Next</button>
+    <button mat-button (click)="acquistaProdotti(newcarta)" routerLink="/prodotti">Acquista</button>
   </mat-step>
 
 </mat-horizontal-stepper>

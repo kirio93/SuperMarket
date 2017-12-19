@@ -15,8 +15,7 @@ export class ListProductComponent implements OnInit {
   carrello: Array<Prodotto> = [];
   prodotto: Prodotto = new Prodotto();
   listaStorico: Array<Prodotto> = [];
-  listOfferta: Array<Prodotto>=[];
-
+  listOfferta: Array<Prodotto> = [];
 
 
   constructor(private prodottiService: ListProductService,
@@ -35,7 +34,6 @@ export class ListProductComponent implements OnInit {
       console.log('getall');
       this.offerteDelGiorno();
     });
-
   }
 
   selectProdotto(prodotto: Prodotto) {
@@ -78,12 +76,17 @@ export class ListProductComponent implements OnInit {
   offerteDelGiorno() {
     for (var _i = 0; _i < 5; _i++) {
       let casuale: number = Math.round((Math.random() * this.listProdotti.length));
-      let sconto = this.listProdotti[casuale].prezzoUnitario - (this.listProdotti[casuale].prezzoUnitario * 0.2);
-      let decimal: number= Number(parseFloat(sconto.toString()).toFixed(2));
-      this.listProdotti[casuale].prezzoUnitario=decimal;
-      this.listOfferta.push(this.listProdotti[casuale]);
-      this.listProdotti[casuale].offerta=1;
-      console.log(this.listProdotti[casuale].prezzoUnitario);
+      if (this.listProdotti[casuale].offerta == 1) {
+        _i--;
+      } else {
+        let sconto = this.listProdotti[casuale].prezzoUnitario - (this.listProdotti[casuale].prezzoUnitario * 0.2);
+        let decimal: number = Number(parseFloat(sconto.toString()).toFixed(2));
+        this.listProdotti[casuale].prezzoUnitario = decimal;
+        this.listOfferta.push(this.listProdotti[casuale]);
+        this.listProdotti[casuale].offerta = 1;
+        console.log(this.listProdotti[casuale].prezzoUnitario);
+      }
     }
+
   }
 }
