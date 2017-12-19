@@ -21,7 +21,7 @@ export class CarrelloComponent implements OnInit {
   carte: CartaCredito[] = [];
   indexCarta: number=0;
   totale: number = 0;
-  newcarta: CartaCredito= new CartaCredito;
+  newcarta: CartaCredito = new CartaCredito;
 
   constructor(private prodottiService: ListProductService, private utente: LoginService,
               private location: Location, private cartaService : CartaCreditoService) {
@@ -29,7 +29,7 @@ export class CarrelloComponent implements OnInit {
 
   ngOnInit() {
     this.getCarrello();
-    this.listaCarte();
+    this.getListaCarte();
   }
 
   getCarrello() {
@@ -42,6 +42,7 @@ export class CarrelloComponent implements OnInit {
     for (let p of this.listaCarrello) {
       this.totale = this.totale += (p.prezzoUnitario * p.quantitaDaAcquistare);
     }
+
     console.log("totale: "+this.totale);
   }
 
@@ -82,9 +83,13 @@ export class CarrelloComponent implements OnInit {
   /**Carte Credito
    *
    */
-  listaCarte() {
+  getListaCarte() {
     this.cartaService.getAllCard().subscribe(data => {
       this.carte = data;
+      for (let c of this.carte) {
+        c.numero = atob(c.numero);
+        console.log("numero carta: "+c.numero)
+      }
     });
     this.indexCarta=this.carte.length;
   }
@@ -100,7 +105,7 @@ export class CarrelloComponent implements OnInit {
       console.error(err);
     });
     console.log(carta);
-    this.listaCarte();
+    this.getListaCarte();
   }
 
 

@@ -40,18 +40,23 @@
 
     </table>
     <br><br>
-    <a style="cursor: pointer" (click)="svuotaCarrello()">Svuota Carrello<i class="material-icons" >remove_shopping_cart</i></a>
+    <a style="cursor: pointer" (click)="svuotaCarrello()">Svuota Carrello<i
+      class="material-icons">remove_shopping_cart</i></a>
 
   </mat-step>
-  <mat-step label="Pagamento" >
+  <mat-step label="Pagamento" *ngIf="listaCarrello.length!=0">
 
     <mat-radio-group class="example-radio-group" [(ngModel)]="newcarta">
-      <mat-radio-button class="example-radio-button" *ngFor="let season of carte" [value]="season">
-        {{season}}
-      </mat-radio-button>
+      <mat-list *ngFor="let c of carte">
+        <mat-list-item>
+          <mat-radio-button class="example-radio-button" [value]="c">
+          </mat-radio-button>
+          <i class="material-icons">credit_card</i> Carta di Credito n°: {{c.numero}}
+        </mat-list-item>
+      </mat-list>
+
     </mat-radio-group>
     <div class="example-selected-value">Pagamento selezionato: {{newcarta.numero}}</div>
-    <br><br>
     <mat-accordion>
       <mat-expansion-panel>
         <mat-expansion-panel-header>
@@ -73,7 +78,7 @@
           <input matInput type="string" [(ngModel)]="newcarta.scadenza" placeholder="Scadenza mm/aa">
         </mat-form-field>
         <br>&nbsp;
-        <a (click)="saveCarta(newcarta)">Aggiungi &nbsp;<span class="glyphicon glyphicon-plus" ></span></a>
+        <a (click)="saveCarta(newcarta)">Aggiungi &nbsp;<span class="glyphicon glyphicon-plus"></span></a>
       </mat-expansion-panel>
       <!-- <mat-expansion-panel (opened)="panelOpenState = true"
                             (closed)="panelOpenState = false">
@@ -81,13 +86,13 @@
 
        </mat-expansion-panel>-->
     </mat-accordion>
-<br><br>
+    <br><br>
     <button mat-button matStepperPrevious>Back</button>
     <button mat-button matStepperNext>Next</button>
   </mat-step>
 
 
-  <mat-step label="Repilogo">
+  <mat-step label="Repilogo" *ngIf="listaCarrello.length!=0">
     <mat-list>
       <mat-list-item *ngFor="let prodotto of listaCarrello">
         {{prodotto.quantitaDaAcquistare}}x &nbsp; {{prodotto.nome}}
@@ -100,9 +105,9 @@
       <i class="material-icons">credit_card</i> &nbsp;
       Carta di Credito n°: {{newcarta.numero}}
     </mat-list>
-<br><br>
+    <br><br>
     <button mat-button matStepperPrevious>Back</button>
-    <button mat-button (click)="acquistaProdotti(newcarta)" routerLink="/prodotti">Acquista</button>
+    <button mat-button (click)="acquistaProdotti(newcarta)" routerLink="/list-product">Acquista</button>
   </mat-step>
 
 </mat-horizontal-stepper>

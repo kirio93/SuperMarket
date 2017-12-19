@@ -65,3 +65,14 @@ mat-horizontal-stepper {
   color: #000000;
 }
 
+.mat-expansion-panel-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.example-selected-value {
+  margin: 10px 0;
+}
+
