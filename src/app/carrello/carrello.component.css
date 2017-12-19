@@ -30,6 +30,20 @@
 
   padding: 6px;
 }
+
+mat-horizontal-stepper {
+  white-space: nowrap;
+  align-items: center;
+  max-width: 80%!important;
+  margin-left: 5%!important;
+  margin-right: 5%!important;
+}
+
+.mat-expansion-panel {
+  max-width: 250px!important;
+  background: rgba(114, 224, 116, 0.52)
+
+}
 .customers td {
   border-top-width: 0px;
   border-left-width: 0px;

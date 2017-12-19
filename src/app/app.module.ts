@@ -8,7 +8,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {
   MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatFormFieldModule, MatInputModule,
-  MatGridListModule, MatExpansionModule, MatCardModule, MatListModule, MatStepperModule, MatIconModule
+  MatGridListModule, MatExpansionModule, MatCardModule, MatListModule, MatStepperModule, MatIconModule, MatRadioModule
 } from '@angular/material';
 import {AppRoutingModule} from './/app-routing.module';
 import {RegisterComponent} from './register/register.component';
@@ -48,7 +48,9 @@ import {CartaCreditoService} from './providers/carta-credito.service';
     MatListModule,
     MatStepperModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatRadioModule,
+    
 
   ],
   providers: [

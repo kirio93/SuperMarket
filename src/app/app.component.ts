@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {LoginService} from './providers/login.service';
 import {Router} from '@angular/router';
 import {SharedService} from './providers/shared.service';
+import {CarrelloComponent} from './carrello/carrello.component';
 
 @Component({
   selector: 'app-root',
@@ -34,7 +35,7 @@ export class AppComponent {
     }
     sharedService.changeEmitted$.subscribe(text => {
       console.log(text);
-      this.logged=true;
+      this.logged = true;
     });
   }
 

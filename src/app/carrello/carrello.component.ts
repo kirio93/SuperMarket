@@ -19,8 +19,9 @@ export class CarrelloComponent implements OnInit {
   prodotto : Prodotto = new Prodotto;
   listaCarrello: Array<Prodotto> = [];
   carte: CartaCredito[] = [];
-
+  indexCarta: number=0;
   totale: number = 0;
+  newcarta: CartaCredito= new CartaCredito;
 
   constructor(private prodottiService: ListProductService, private utente: LoginService,
               private location: Location, private cartaService : CartaCreditoService) {
@@ -28,6 +29,7 @@ export class CarrelloComponent implements OnInit {
 
   ngOnInit() {
     this.getCarrello();
+    this.listaCarte();
   }
 
   getCarrello() {
@@ -76,10 +78,15 @@ export class CarrelloComponent implements OnInit {
     this.svuotaCarrello();
   }
 
+
+  /**Carte Credito
+   *
+   */
   listaCarte() {
     this.cartaService.getAllCard().subscribe(data => {
       this.carte = data;
     });
+    this.indexCarta=this.carte.length;
   }
 
   eliminaCarta(idCarta) {
@@ -88,5 +95,11 @@ export class CarrelloComponent implements OnInit {
 
   saveCarta(carta){
     this.cartaService.saveOrUpdateCard(carta);
+    console.log(carta);
+    this.listaCarte();
   }
+
+
+
+
 }

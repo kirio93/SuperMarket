@@ -14,7 +14,8 @@
         <td style="width:27%">&euro;&nbsp;{{prodotto.prezzoUnitario}} x &nbsp;{{prodotto.quantitaDaAcquistare}}
           <br><span class="glyphicon glyphicon-remove" (click)="eliminaCarello(prodotto)"></span>
         </td>
-        <td style="width:15%"><input type="number" class="quantiacarrello" name="quantitaDaAcquistare" id="quantitaDaAcquistare"
+        <td style="width:15%"><input type="number" class="quantiacarrello" name="quantitaDaAcquistare"
+                                     id="quantitaDaAcquistare"
                                      [(ngModel)]="prodotto.quantitaDaAcquistare">
         </td>
       </tr>
@@ -26,7 +27,6 @@
         <td style="width:55%">
           <h3>Totale: </h3>
 
-
         </td>
         <td>
           <h3>&euro;&nbsp;{{totale}} &nbsp;&nbsp;
@@ -36,16 +36,73 @@
         <br>
       </tr>
       <button mat-raised-button matStepperNext color="primary">Acquista</button>
-    </table>
+      <br>
 
+    </table>
+    <br><br>
+    <a style="cursor: pointer" (click)="svuotaCarrello()">Svuota Carrello<i class="material-icons" >remove_shopping_cart</i></a>
 
   </mat-step>
-  <mat-step label="Pagamento">
+  <mat-step label="Pagamento" >
 
+    <mat-radio-group class="example-radio-group" [(ngModel)]="newcarta">
+      <mat-radio-button class="example-radio-button" *ngFor="let season of carte" [value]="season">
+        {{season}}
+      </mat-radio-button>
+    </mat-radio-group>
+    <div class="example-selected-value">Pagamento selezionato: {{newcarta.numero}}</div>
+    <br><br>
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Inserisci nuova carta di credito
+          </mat-panel-title>
+
+        </mat-expansion-panel-header>
+
+        <mat-form-field>
+          <input matInput type="string" [(ngModel)]="newcarta.numero" placeholder="Numero Carta">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput type="string" [(ngModel)]="newcarta.ccv" placeholder="CCV">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput type="string" [(ngModel)]="newcarta.scadenza" placeholder="Scadenza mm/aa">
+        </mat-form-field>
+        <br>&nbsp;
+        <a (click)="saveCarta(newcarta)">Aggiungi &nbsp;<span class="glyphicon glyphicon-plus" ></span></a>
+      </mat-expansion-panel>
+      <!-- <mat-expansion-panel (opened)="panelOpenState = true"
+                            (closed)="panelOpenState = false">
+
+
+       </mat-expansion-panel>-->
+    </mat-accordion>
+<br><br>
+    <button mat-button matStepperPrevious>Back</button>
+    <button mat-button matStepperNext>Next</button>
   </mat-step>
 
 
   <mat-step label="Repilogo">
-    Content 2
+    <mat-list>
+      <mat-list-item *ngFor="let prodotto of listaCarrello">
+        {{prodotto.quantitaDaAcquistare}}x &nbsp; {{prodotto.nome}}
+
+      </mat-list-item>
+      <h3>TOTALE: &euro;&nbsp;{{totale}}</h3>
+      <br>
+      Tipo di Pagamento:
+      <br><br>
+      <i class="material-icons">credit_card</i> &nbsp;
+      Carta di Credito n°: {{newcarta.numero}}
+    </mat-list>
+<br><br>
+    <button mat-button matStepperPrevious>Back</button>
+    <button mat-button matStepperNext>Next</button>
   </mat-step>
+
 </mat-horizontal-stepper>
