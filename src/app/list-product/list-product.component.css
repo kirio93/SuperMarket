@@ -1,4 +1,9 @@
-
+.sale {
+  height: 42px;
+  position: absolute;
+  margin-left: 20px!important;
+  margin-top: 2%;
+}
 .mat-grid-tile .mat-grid-tile-footer, .mat-grid-tile .mat-grid-tile-header{
   background: rgb(253, 255, 255) !important;
   color: #0000ff;

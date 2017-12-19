@@ -1,12 +1,9 @@
 <div class="offerte" style="position: relative;" *ngIf="listProdotti != []">
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" *ngFor="let prodotto of listProdotti ; let i = index" data-slide-to="i" ngClass="i == 0 ? 'active' : ''"></li>
-    </ol>
+
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
-      <div *ngFor="let prodotto of listProdotti ; let k = index" [ngClass]="k == 0 ? 'item active' : 'item'">
+      <div *ngFor="let prodotto of listOfferta ; let k = index" [ngClass]="k == 0 ? 'item active' : 'item'">
         <img class="margini" src={{prodotto.imgOfferta}} alt="Event Image">
       </div>
     </div>
@@ -42,11 +39,11 @@
     <div class="col-sm-4 col-md-3" *ngFor="let prodotto of listProdotti" (click)="selectProdotto(prodotto)"
          data-toggle="modal" data-target="#myModel">
       <div class="thumbnail">
-        <img src="{{prodotto.img}}">
+        <img class="sale" src="../../assets/sale.png" *ngIf="prodotto.offerta == 1"><img src="{{prodotto.img}}">
         <div class="caption">
           <h3>{{prodotto.nome}}</h3>
 
-          <p ><button mat-fab class="mat-raised-button" (click)="aggiungi(prodotto)">Aggiungi</button>
+          <p ><button mat-fab class="mat-raised-button" style="font-size: 12px!important;" (click)="aggiungi(prodotto)">Aggiungi</button>
 
             <span  class="prezzo">Prezzo: &euro; {{prodotto.prezzoUnitario}}</span>
             <select  name="quantitaDaAcquistare" autocomplete="off" id="quantitaDaAcquistare" tabindex="-1" class="a-native-dropdown" [(ngModel)]="prodotto.quantitaDaAcquistare">
