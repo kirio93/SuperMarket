@@ -94,7 +94,11 @@ export class CarrelloComponent implements OnInit {
   }
 
   saveCarta(carta){
-    this.cartaService.saveOrUpdateCard(carta);
+    this.cartaService.saveOrUpdateCard(carta).subscribe( data => {
+      console.log(data);
+    }, err => {
+      console.error(err);
+    });
     console.log(carta);
     this.listaCarte();
   }

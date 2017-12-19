@@ -12,9 +12,9 @@ export class CartaCreditoService {
 
   constructor(private http : HttpClient) { }
 
-  saveOrUpdateCard(cartaCredito) {
+  saveOrUpdateCard(cartaCredito) : Observable<CartaCredito> {
     console.log(cartaCredito);
-    return this.http.post(BACKEND_URL+'/cartaCredito/saveupdate', cartaCredito,httpOptions);
+    return this.http.post<CartaCredito>(BACKEND_URL+'/cartaCredito/saveupdate', cartaCredito, httpOptions);
   }
 
   getAllCard() : Observable<CartaCredito[]> {
