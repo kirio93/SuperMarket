@@ -17,7 +17,7 @@ export class ListProductComponent implements OnInit {
   listaStorico: Array<Prodotto> = [];
   listOfferta: Array<Prodotto> = [];
   title: string = 'Conferma aggiunta';
-  message: string = 'Il prodotto è stato aggiunto al carrello';
+  message: string = 'Vuoi aggiungere il prodotto al carrello?';
   confirmText = 'OK';
   cancelText = 'Annulla';
   confirmClicked: boolean = false;

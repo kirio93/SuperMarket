@@ -14,7 +14,7 @@
         <td style="width:27%">&euro;&nbsp;{{prodotto.prezzoUnitario}} x &nbsp;{{prodotto.quantitaDaAcquistare}}
           <br><span class="glyphicon glyphicon-remove" (click)="eliminaCarello(prodotto)"></span>
         </td>
-        <td style="width:15%"><input type="number" class="quantiacarrello" name="quantitaDaAcquistare"
+        <td style="width:15%"><input type="number" class="quantitaCarrello" name="quantitaDaAcquistare"
                                      id="quantitaDaAcquistare"
                                      [(ngModel)]="prodotto.quantitaDaAcquistare">
         </td>
@@ -44,8 +44,12 @@
       class="material-icons">remove_shopping_cart</i></a>
 
   </mat-step>
-  <mat-step label="Pagamento" *ngIf="listaCarrello.length!=0">
-
+  <mat-step label="Pagamento">
+    <div class="carrelloVuoto" align="center" *ngIf="listaCarrello.length==0">
+      <p>Il tuo carrello è vuoto! Aggiungi alcuni prodotti per effettuare l'acquisto!</p>
+      <button type="button" class="btn btn-info" routerLink="/list-product">Visualizza prodotti</button>
+    </div>
+    <div *ngIf="listaCarrello.length!=0">
     <mat-radio-group class="example-radio-group" [(ngModel)]="newcarta">
       <mat-list *ngFor="let c of carte">
         <mat-list-item>
@@ -89,10 +93,16 @@
     <br><br>
     <button mat-button matStepperPrevious>Back</button>
     <button mat-button matStepperNext>Next</button>
+    </div>
   </mat-step>
 
 
-  <mat-step label="Repilogo" *ngIf="listaCarrello.length!=0">
+  <mat-step label="Repilogo">
+    <div class="carrelloVuoto" align="center" *ngIf="listaCarrello.length==0">
+      <p>Il tuo carrello è vuoto! Aggiungi alcuni prodotti per effettuare l'acquisto!</p>
+      <button type="button" class="btn btn-info" routerLink="/list-product">Visualizza prodotti</button>
+    </div>
+    <div *ngIf="listaCarrello.length!=0">
     <mat-list>
       <mat-list-item *ngFor="let prodotto of listaCarrello">
         {{prodotto.quantitaDaAcquistare}}x &nbsp; {{prodotto.nome}}
@@ -108,6 +118,7 @@
     <br><br>
     <button mat-button matStepperPrevious>Back</button>
     <button mat-button (click)="acquistaProdotti(newcarta)" routerLink="/list-product">Acquista</button>
+    </div>
   </mat-step>
 
 </mat-horizontal-stepper>

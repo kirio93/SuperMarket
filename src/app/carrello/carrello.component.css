@@ -6,8 +6,10 @@
   margin-right: auto;
   margin-top: 15px;
 }
-.tolale td {
 
+.carrelloVuoto {
+  overflow: hidden;
+  padding: 45px 24px 24px 24px;
 }
 
 .customers {
@@ -19,8 +21,8 @@
   margin-top: 15px;
 }
 
-.quantiacarrello {
-  width: 30px;
+.quantitaCarrello {
+  width: 37px;
 }
 .imgCarrello{
   height: 5%;
