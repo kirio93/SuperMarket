@@ -109,19 +109,25 @@ export class CarrelloComponent implements OnInit {
   }
 
   eliminaCarta(idCarta) {
-    this.cartaService.deleteCard(idCarta);
+    console.log(idCarta);
+    this.cartaService.deleteCard(idCarta).subscribe( data => {
+      console.log(data);
+      this.getListaCarte();
+      }, err => {
+      console.error(err);
+    });
+
   }
 
   saveCarta(carta){
     console.log(carta);
     this.cartaService.saveOrUpdateCard(carta).subscribe( data => {
       console.log(data);
-    }, err => {
+      this.getListaCarte();
+      }, err => {
       console.error(err);
     });
     console.log(carta);
-    this.getListaCarte();
-    this.router.navigate(['carrello']);
   }
 
 

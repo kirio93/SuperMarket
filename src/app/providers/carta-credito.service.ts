@@ -21,8 +21,8 @@ export class CartaCreditoService {
     return this.http.get<CartaCredito[]>(BACKEND_URL+'/cartaCredito/getall',httpOptions);
   }
 
-  deleteCard (idCarta){
-    return this.http.delete(BACKEND_URL+'/cartaCredito/deletecard/'+idCarta,httpOptions);
+  deleteCard (idCarta) : Observable<CartaCredito>{
+    return this.http.delete<CartaCredito>(BACKEND_URL+'/cartaCredito/deletecard/'+idCarta,httpOptions);
   }
 
 }

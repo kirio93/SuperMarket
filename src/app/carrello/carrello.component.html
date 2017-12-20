@@ -60,7 +60,8 @@
         <mat-list-item>
           <mat-radio-button class="example-radio-button" [value]="c">
           </mat-radio-button>
-          <i class="material-icons">credit_card</i> Carta di Credito n°: {{c.numero}}
+          <i class="material-icons">credit_card</i> Carta di Credito n°: {{c.numero}}&nbsp;
+          <a style="cursor: pointer" (click)="eliminaCarta(c.id)"><i class="glyphicon glyphicon-trash"></i></a>
         </mat-list-item>
       </mat-list>
 
