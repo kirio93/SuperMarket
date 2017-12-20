@@ -76,15 +76,15 @@
         </mat-expansion-panel-header>
 
         <mat-form-field>
-          <input matInput type="string" [(ngModel)]="newcarta.numero" placeholder="Numero Carta">
+          <input matInput type="text" [(ngModel)]="newcarta.numero" placeholder="Numero Carta">
         </mat-form-field>
         <br>
         <mat-form-field>
-          <input matInput type="string" [(ngModel)]="newcarta.ccv" placeholder="CCV">
+          <input matInput type="text" [(ngModel)]="newcarta.ccv" placeholder="CCV">
         </mat-form-field>
         <br>
         <mat-form-field>
-          <input matInput type="string" [(ngModel)]="newcarta.scadenza" placeholder="Scadenza mm/aa">
+          <input matInput type="text" [(ngModel)]="newcarta.scadenza" placeholder="Scadenza mm/aa">
         </mat-form-field>
         <br>&nbsp;
         <a (click)="saveCarta(newcarta)">Aggiungi &nbsp;<span class="glyphicon glyphicon-plus"></span></a>

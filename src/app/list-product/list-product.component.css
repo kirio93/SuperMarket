@@ -18,7 +18,10 @@
   border:3px solid #0028fa;
 }
 
-
+.imgCarrello{
+  height: 5%;
+  padding: initial;
+}
 
 .example-card {
   width: 400px;

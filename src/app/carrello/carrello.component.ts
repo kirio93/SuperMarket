@@ -84,7 +84,9 @@ export class CarrelloComponent implements OnInit {
 
   acquistaProdotti(idCarta) {
     if (this.confirmClicked == true) {
+      console.log("carta: "+this.newcarta);
       idCarta = this.newcarta.id;
+      console.log("idCarta: "+idCarta);
       this.prodottiService.acquisti(this.listaCarrello, idCarta).subscribe( data => {
         console.log(data);
       }, err => {
@@ -102,10 +104,6 @@ export class CarrelloComponent implements OnInit {
   getListaCarte() {
     this.cartaService.getAllCard().subscribe(data => {
       this.carte = data;
-      for (let c of this.carte) {
-        c.numero = atob(c.numero);
-        console.log("numero carta: "+c.numero)
-      }
     });
     this.indexCarta=this.carte.length;
   }
@@ -115,6 +113,7 @@ export class CarrelloComponent implements OnInit {
   }
 
   saveCarta(carta){
+    console.log(carta);
     this.cartaService.saveOrUpdateCard(carta).subscribe( data => {
       console.log(data);
     }, err => {
@@ -122,6 +121,7 @@ export class CarrelloComponent implements OnInit {
     });
     console.log(carta);
     this.getListaCarte();
+    this.router.navigate(['carrello']);
   }
 
 

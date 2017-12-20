@@ -36,10 +36,9 @@
 <br>
 <div>
   <div class="row">
-    <div class="col-sm-4 col-md-3" *ngFor="let prodotto of listProdotti" (click)="selectProdotto(prodotto)"
-         data-toggle="modal" data-target="#myModel">
+    <div class="col-sm-4 col-md-3" *ngFor="let prodotto of listProdotti" (click)="selectProdotto(prodotto)">
       <div class="thumbnail">
-        <img class="sale" src="../../assets/sale.png" *ngIf="prodotto.offerta == 1"><img src="{{prodotto.img}}">
+        <img class="sale" src="../../assets/sale.png" *ngIf="prodotto.offerta == 1"><img data-toggle="modal" data-target="#myModal" src="{{prodotto.img}}">
         <div class="caption">
           <h3>{{prodotto.nome}}</h3>
 
@@ -88,13 +87,14 @@
         <h4 class="modale-title"> {{prodotto.nome}}&nbsp; Prodotto da:&nbsp;{{prodotto.marca}}</h4>
       </div>
       <div class="modal-body">
-
-
+        <ul class="list-group">
+          <li class="list-group-item">Categoria: {{prodotto.categoria}}</li>
+          <li class="list-group-item">Disponibilità: {{prodotto.quantitaDisponibile}}</li>
+          <li class="list-group-item">Data di scadenza: {{prodotto.dataDiScadenza}}</li>
+          <li class="list-group-item"><img src={{prodotto.img}}></li>
+        </ul>
       </div>
       <div class="modal-footer">
-        <img type="button" src="../../assets/addcarrello.ico"
-             data-toggle="tooltip">
-        <span class="glyphicon glyphicon-trash"></span>
 
         <button type="button" class="btn btn-default close" data-dismiss="modal">Close</button>
       </div>
