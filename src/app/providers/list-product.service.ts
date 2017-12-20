@@ -29,8 +29,10 @@ export class ListProductService {
    * @param carta
    * @returns {Observable<Object>}
    */
-  acquisti(prodotto, carta) {
-    return this.http.post(BACKEND_URL + '/acquista/' + carta, prodotto, httpOptions);
+  acquisti(prodotto, idCarta) {
+    console.log("carta: " + idCarta);
+    console.log("prodotto: "+prodotto);
+    return this.http.post(BACKEND_URL + '/prodotto/acquista/' + idCarta, prodotto, httpOptions);
   }
 
   findProdottoById(prodottoId): Observable<Prodotto> {

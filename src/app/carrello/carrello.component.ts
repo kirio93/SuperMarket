@@ -7,6 +7,7 @@ import {CartaCredito} from '../model/cartaCredito';
 import {Prodotto} from '../model/prodotto';
 
 import {CartaCreditoService} from '../providers/carta-credito.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -22,9 +23,16 @@ export class CarrelloComponent implements OnInit {
   indexCarta: number=0;
   totale: number = 0;
   newcarta: CartaCredito = new CartaCredito;
+  title: string = 'Conferma acquisto';
+  message: string = "Sei sicuro di voler procedere con l'acquisto?";
+  confirmText = 'OK';
+  cancelText = 'Annulla';
+  confirmClicked: boolean = false;
+  cancelClicked: boolean = false;
 
   constructor(private prodottiService: ListProductService, private utente: LoginService,
-              private location: Location, private cartaService : CartaCreditoService) {
+              private location: Location, private cartaService : CartaCreditoService,
+              private router : Router) {
   }
 
   ngOnInit() {
@@ -75,8 +83,16 @@ export class CarrelloComponent implements OnInit {
   }
 
   acquistaProdotti(idCarta) {
-    this.prodottiService.acquisti(this.listaCarrello, idCarta);
-    this.svuotaCarrello();
+    if (this.confirmClicked == true) {
+      idCarta = this.newcarta.id;
+      this.prodottiService.acquisti(this.listaCarrello, idCarta).subscribe( data => {
+        console.log(data);
+      }, err => {
+        console.error(err);
+      });
+      this.svuotaCarrello();
+      this.router.navigate(['list-product']);
+    } else {}
   }
 
 

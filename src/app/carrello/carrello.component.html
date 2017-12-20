@@ -1,5 +1,10 @@
 <mat-horizontal-stepper>
   <mat-step label="Carrello">
+    <div class="carrelloVuoto" align="center" *ngIf="listaCarrello.length==0">
+      <p>Il tuo carrello è vuoto! Aggiungi alcuni prodotti per effettuare l'acquisto!</p>
+      <button type="button" class="btn btn-info" routerLink="/list-product">Visualizza prodotti</button>
+    </div>
+    <div *ngIf="listaCarrello.length!=0">
     <table class="customers ">
       <tr>
         <th></th>
@@ -42,7 +47,7 @@
     <br><br>
     <a style="cursor: pointer" (click)="svuotaCarrello()">Svuota Carrello<i
       class="material-icons">remove_shopping_cart</i></a>
-
+    </div>
   </mat-step>
   <mat-step label="Pagamento">
     <div class="carrelloVuoto" align="center" *ngIf="listaCarrello.length==0">
@@ -117,7 +122,14 @@
     </mat-list>
     <br><br>
     <button mat-button matStepperPrevious>Back</button>
-    <button mat-button (click)="acquistaProdotti(newcarta)" routerLink="/list-product">Acquista</button>
+    <button mat-button mwlConfirmationPopover
+            [title]="title"
+            [message]="message"
+            placement="right"
+            [confirmText]="confirmText"
+            [cancelText]="cancelText"
+            (confirm)="confirmClicked = true; acquistaProdotti(newcarta)"
+            (cancel)="cancelClicked = true">Acquista</button>
     </div>
   </mat-step>
 
