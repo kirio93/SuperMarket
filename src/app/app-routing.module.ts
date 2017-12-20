@@ -5,6 +5,7 @@ import {RegisterComponent} from "./register/register.component";
 import {ListProductComponent} from "./list-product/list-product.component";
 import {AuthGuardService} from "./providers/auth-guard.service";
 import {CarrelloComponent} from './carrello/carrello.component';
+import {StoricoComponent} from './storico/storico.component';
 
 
 const routes :Routes =[
@@ -12,7 +13,8 @@ const routes :Routes =[
   {path: 'login', component: LoginComponent},
   {path: 'register', component:RegisterComponent},
   {path: 'list-product', component:ListProductComponent, canActivate: [AuthGuardService]},
-  {path: 'carrello', component:CarrelloComponent}
+  {path: 'carrello', component:CarrelloComponent},
+  {path: 'storico', component: StoricoComponent}
 
 ];
 

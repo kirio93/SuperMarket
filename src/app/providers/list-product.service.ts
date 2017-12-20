@@ -5,6 +5,7 @@ import {hasCommentAfterPosition} from 'tslint';
 import {Observable} from 'rxjs/Observable';
 import {Prodotto} from '../model/prodotto';
 import {CartaCredito} from '../model/cartaCredito';
+import {Acquisti} from '../model/acquisti';
 
 
 const httpOptions ={
@@ -37,7 +38,7 @@ export class ListProductService {
   }
 
   findProdottoById(prodottoId): Observable<Prodotto> {
-    return this.http.get<Prodotto>(BACKEND_URL+'/findById/'+prodottoId, httpOptions);
+    return this.http.get<Prodotto>(BACKEND_URL+'/prodotto/findById/'+prodottoId, httpOptions);
   }
 
   getListDisponibili(): Observable<Prodotto[]>{
@@ -57,8 +58,8 @@ export class ListProductService {
    *
    * @returns {Observable<Prodotto[]>}
    */
-  findStorico(): Observable<Prodotto[]>{
-    return this.http.get<Prodotto[]>(BACKEND_URL+'/getStorico',httpOptions);
+  findStorico(): Observable<Array<Acquisti>>{
+    return this.http.get<Array<Acquisti>>(BACKEND_URL+'/prodotto/getStorico',httpOptions);
   }
 
   categoriaDisponibili(categoria,disponibili) :Observable<Prodotto[]>{

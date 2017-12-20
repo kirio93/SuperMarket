@@ -1,0 +1,16 @@
+.mat-accordion {
+  max-width: 400px !important;
+}
+.mat-expansion-panel {
+  size: inherit;
+}
+.mat-expansion-panel-header {
+  text-align: center !important;
+}
+.lista {
+  max-width: 400px;
+  text-align: left;
+}
+.ordini {
+  margin-top: 100px;
+}

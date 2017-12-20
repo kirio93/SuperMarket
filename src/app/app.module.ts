@@ -21,6 +21,7 @@ import {ListProductService} from './providers/list-product.service';
 import {CarrelloComponent} from './carrello/carrello.component';
 import {CartaCreditoService} from './providers/carta-credito.service';
 import {ConfirmationPopoverModule} from 'angular-confirmation-popover';
+import { StoricoComponent } from './storico/storico.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {ConfirmationPopoverModule} from 'angular-confirmation-popover';
     LoginComponent,
     RegisterComponent,
     ListProductComponent,
-    CarrelloComponent
+    CarrelloComponent,
+    StoricoComponent
 
   ],
   imports: [

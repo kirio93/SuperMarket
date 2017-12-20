@@ -53,12 +53,6 @@ export class ListProductComponent implements OnInit {
     });
   }
 
-  findStorico() {
-    this.prodottiService.findStorico().subscribe(data => {
-      this.listaStorico = data;
-    });
-  }
-
   deleteProdotto(idProdotto) {
     this.prodottiService.deleteProdotto(idProdotto);
 

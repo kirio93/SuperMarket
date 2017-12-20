@@ -3,6 +3,8 @@ import {LoginService} from './providers/login.service';
 import {Router} from '@angular/router';
 import {SharedService} from './providers/shared.service';
 import {CarrelloComponent} from './carrello/carrello.component';
+import {ListProductService} from './providers/list-product.service';
+import {Acquisti} from './model/acquisti';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +14,11 @@ import {CarrelloComponent} from './carrello/carrello.component';
 export class AppComponent {
   title = 'app';
   logged = false;
+  acquisto = false;
+  listaStorico : Array<Acquisti> = [];
 
-  constructor(private loginService: LoginService, private router: Router, private sharedService: SharedService) {
+  constructor(private loginService: LoginService, private router: Router, private sharedService: SharedService,
+              private prodottiService : ListProductService) {
     let userLogged = localStorage.getItem('user');
     if (userLogged != null) {
       this.logged = true;
@@ -37,6 +42,19 @@ export class AppComponent {
       console.log(text);
       this.logged = true;
     });
+    this.prodottiService.findStorico().subscribe( data => {
+      this.listaStorico = data;
+      console.log(this.listaStorico);
+      localStorage.setItem('storico', JSON.stringify(this.listaStorico));
+    }, err => {
+      console.error(err);
+    });
+    let acquisti = JSON.parse(localStorage.getItem('storico'));
+    if (acquisti != null) {
+      this.acquisto = true;
+      console.log(this.acquisto);
+    } console.log(this.acquisto);
+
   }
 
   logout() {

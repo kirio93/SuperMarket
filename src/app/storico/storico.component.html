@@ -1,0 +1,23 @@
+<div align="center" class="ordini" *ngIf="listaStorico.length!=0">
+  <h2>I tuoi ordini</h2>
+  <div class="lista">
+    <mat-accordion *ngFor="let acquisto of listaStorico">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Codice Transazione :
+          </mat-panel-title>
+          <mat-panel-description>
+            {{acquisto.idFattura}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <img src="{{prodotto.img}}" height="15%" width="15%">
+        <p>{{prodotto.nome}}</p>
+        <p>{{prodotto.marca}}</p>
+        <p>Quantità acquistata {{prodotto.quantitaDaAcquistare}}</p>
+        <p>Categoria: {{prodotto.categoria}}</p>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>
+
