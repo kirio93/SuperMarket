@@ -12,6 +12,8 @@ export class StoricoComponent implements OnInit {
 
   listaStorico : Array<Acquisti> = [];
 
+  listaProdotti : Array<Prodotto> = [];
+
   prodotto : Prodotto = new Prodotto();
 
   constructor(private prodottiService: ListProductService) { }
@@ -24,16 +26,16 @@ export class StoricoComponent implements OnInit {
     this.prodottiService.findStorico().subscribe( data => {
       this.listaStorico = data;
       console.log(this.listaStorico);
-      console.log("prova");
       for (let a of this.listaStorico) {
         this.prodottiService.findProdottoById(a.idProdotto).subscribe( data => {
+          console.log(data);
           this.prodotto = data;
+          this.listaProdotti.push(this.prodotto);
           console.log("prodotto: "+this.prodotto);
         }, err => {
           console.log(err);
         });
       }
-      localStorage.setItem('storico', JSON.stringify(this.listaStorico));
     }, err => {
       console.error(err);
     });

@@ -14,3 +14,8 @@
 .ordini {
   margin-top: 100px;
 }
+
+.storicoVuoto {
+  overflow: hidden;
+  padding: 45px 24px 24px 24px;
+}

@@ -14,8 +14,6 @@ import {Acquisti} from './model/acquisti';
 export class AppComponent {
   title = 'app';
   logged = false;
-  acquisto = false;
-  listaStorico : Array<Acquisti> = [];
 
   constructor(private loginService: LoginService, private router: Router, private sharedService: SharedService,
               private prodottiService : ListProductService) {
@@ -42,19 +40,6 @@ export class AppComponent {
       console.log(text);
       this.logged = true;
     });
-    this.prodottiService.findStorico().subscribe( data => {
-      this.listaStorico = data;
-      console.log(this.listaStorico);
-      localStorage.setItem('storico', JSON.stringify(this.listaStorico));
-    }, err => {
-      console.error(err);
-    });
-    let acquisti = JSON.parse(localStorage.getItem('storico'));
-    if (acquisti != null) {
-      this.acquisto = true;
-      console.log(this.acquisto);
-    } console.log(this.acquisto);
-
   }
 
   logout() {

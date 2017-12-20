@@ -66,7 +66,7 @@
       </mat-list>
 
     </mat-radio-group>
-    <div class="example-selected-value">Pagamento selezionato: {{newcarta.numero}}</div>
+    <div class="example-selected-value" *ngIf="carte.length!=0">Pagamento selezionato: {{newcarta.numero}}</div>
     <mat-accordion>
       <mat-expansion-panel>
         <mat-expansion-panel-header>
