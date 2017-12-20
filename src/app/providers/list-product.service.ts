@@ -14,7 +14,7 @@ const httpOptions ={
 export class ListProductService {
 
 
-  carrello: Prodotto[] = [];
+  carrello: Array<Prodotto> = [];
 
   constructor(private http : HttpClient) { }
 
@@ -30,9 +30,10 @@ export class ListProductService {
    * @returns {Observable<Object>}
    */
   acquisti(prodotto, idCarta) {
+    this.carrello = prodotto;
     console.log("carta: " + idCarta);
-    console.log("prodotto: "+prodotto);
-    return this.http.post(BACKEND_URL + '/prodotto/acquista/' + idCarta, prodotto, httpOptions);
+    console.log("prodotti: "+this.carrello);
+    return this.http.post(BACKEND_URL + '/prodotto/acquista/' + idCarta, this.carrello, httpOptions);
   }
 
   findProdottoById(prodottoId): Observable<Prodotto> {

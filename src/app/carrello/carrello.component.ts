@@ -85,15 +85,16 @@ export class CarrelloComponent implements OnInit {
   acquistaProdotti(idCarta) {
     if (this.confirmClicked == true) {
       console.log("carta: "+this.newcarta);
-      idCarta = this.newcarta.id;
       console.log("idCarta: "+idCarta);
+      console.log("carrello: "+this.listaCarrello);
       this.prodottiService.acquisti(this.listaCarrello, idCarta).subscribe( data => {
         console.log(data);
+        this.svuotaCarrello();
+        this.showAlert();
+        this.router.navigate(['list-product']);
       }, err => {
         console.error(err);
       });
-      this.svuotaCarrello();
-      this.router.navigate(['list-product']);
     } else {}
   }
 
@@ -130,7 +131,7 @@ export class CarrelloComponent implements OnInit {
     console.log(carta);
   }
 
-
-
-
+  showAlert() {
+    alert("Acquisto effettuato con successo!");
+  }
 }

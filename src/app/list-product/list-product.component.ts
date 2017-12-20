@@ -78,6 +78,7 @@ export class ListProductComponent implements OnInit {
       this.carrello.push(prodotto);
       localStorage.setItem('carrello', JSON.stringify(this.carrello));
       console.log('carrello: ' + localStorage.getItem('carrello').toString());
+      this.showAlert();
     } else {}
   }
 
@@ -96,5 +97,8 @@ export class ListProductComponent implements OnInit {
       }
     }
 
+  }
+  showAlert() {
+    alert("Prodotto aggiunto con successo!");
   }
 }

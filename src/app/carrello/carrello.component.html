@@ -129,7 +129,7 @@
             placement="right"
             [confirmText]="confirmText"
             [cancelText]="cancelText"
-            (confirm)="confirmClicked = true; acquistaProdotti(newcarta)"
+            (confirm)="confirmClicked = true; acquistaProdotti(newcarta.id)"
             (cancel)="cancelClicked = true">Acquista</button>
     </div>
   </mat-step>
