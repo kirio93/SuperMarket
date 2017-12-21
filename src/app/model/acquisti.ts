@@ -3,5 +3,5 @@ export class Acquisti {
   idUser : number;
   idFattura : number;
   idProdotto : number;
-  data : Date;
+  data : string;
 }
