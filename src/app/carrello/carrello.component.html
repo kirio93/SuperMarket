@@ -5,48 +5,48 @@
       <button type="button" class="btn btn-info" routerLink="/list-product">Visualizza prodotti</button>
     </div>
     <div *ngIf="listaCarrello.length!=0">
-    <table class="customers ">
-      <tr>
-        <th></th>
-        <th>Prodotto</th>
-        <th></th>
-        <th style="width:20%"></th>
+      <table class="customers ">
+        <tr>
+          <th></th>
+          <th>Prodotto</th>
+          <th></th>
+          <th style="width:20%"></th>
 
-      </tr>
-      <tr *ngFor="let prodotto of listaCarrello">
-        <td style="width:18%"><img class="imgCarrello" src="{{prodotto.img}}"></td>
-        <td style="width:40%">{{prodotto.nome}}</td>
-        <td style="width:27%">&euro;&nbsp;{{prodotto.prezzoUnitario}} x &nbsp;{{prodotto.quantitaDaAcquistare}}
-          <br><span class="glyphicon glyphicon-remove" (click)="eliminaCarello(prodotto)"></span>
-        </td>
-        <td style="width:15%"><input type="number" class="quantitaCarrello" name="quantitaDaAcquistare"
-                                     id="quantitaDaAcquistare"
-                                     [(ngModel)]="prodotto.quantitaDaAcquistare">
-        </td>
-      </tr>
-      <br><br>
-    </table>
+        </tr>
+        <tr *ngFor="let prodotto of listaCarrello">
+          <td style="width:18%"><img class="imgCarrello" src="{{prodotto.img}}"></td>
+          <td style="width:40%">{{prodotto.nome}}</td>
+          <td style="width:27%">&euro;&nbsp;{{prodotto.prezzoUnitario}} x &nbsp;{{prodotto.quantitaDaAcquistare}}
+            <br><span class="glyphicon glyphicon-remove" (click)="eliminaCarello(prodotto)"></span>
+          </td>
+          <td style="width:15%"><input type="number" class="quantitaCarrello" name="quantitaDaAcquistare"
+                                       id="quantitaDaAcquistare"
+                                       [(ngModel)]="prodotto.quantitaDaAcquistare">
+          </td>
+        </tr>
+        <br><br>
+      </table>
 
-    <table class="totale">
-      <tr>
-        <td style="width:55%">
-          <h3>Totale: </h3>
+      <table class="totale">
+        <tr>
+          <td style="width:55%">
+            <h3>Totale: </h3>
 
-        </td>
-        <td>
-          <h3>&euro;&nbsp;{{totale}} &nbsp;&nbsp;
-            <span class="glyphicon glyphicon-refresh" (click)="calcolaTotale()"></span>
-          </h3>
-        </td>
+          </td>
+          <td>
+            <h3>&euro;&nbsp;{{totale}} &nbsp;&nbsp;
+              <span class="glyphicon glyphicon-refresh" (click)="calcolaTotale()"></span>
+            </h3>
+          </td>
+          <br>
+        </tr>
+        <button mat-raised-button matStepperNext color="primary">Paga</button>
         <br>
-      </tr>
-      <button mat-raised-button matStepperNext color="primary">Paga</button>
-      <br>
 
-    </table>
-    <br><br>
-    <a style="cursor: pointer" (click)="svuotaCarrello()">Svuota Carrello<i
-      class="material-icons">remove_shopping_cart</i></a>
+      </table>
+      <br><br>
+      <a style="cursor: pointer" (click)="svuotaCarrello()">Svuota Carrello<i
+        class="material-icons">remove_shopping_cart</i></a>
     </div>
   </mat-step>
   <mat-step label="Pagamento">
@@ -55,50 +55,45 @@
       <button type="button" class="btn btn-info" routerLink="/list-product">Visualizza prodotti</button>
     </div>
     <div *ngIf="listaCarrello.length!=0">
-    <mat-radio-group class="example-radio-group" [(ngModel)]="newcarta">
-      <mat-list *ngFor="let c of carte">
-        <mat-list-item>
-          <mat-radio-button class="example-radio-button" [value]="c">
-          </mat-radio-button>
-          <i class="material-icons">credit_card</i> Carta di Credito n°: {{c.numero}}&nbsp;
-          <a style="cursor: pointer" (click)="eliminaCarta(c.id)"><i class="glyphicon glyphicon-trash"></i></a>
-        </mat-list-item>
-      </mat-list>
+      <mat-radio-group class="example-radio-group" [(ngModel)]="newcarta">
+        <mat-list *ngFor="let c of carte">
+          <mat-list-item>
+            <mat-radio-button class="example-radio-button" [value]="c">
+            </mat-radio-button>
+            <i class="material-icons">credit_card</i> Carta di Credito n°: {{c.numero}}&nbsp;
+            <a style="cursor: pointer" (click)="eliminaCarta(c.id)"><i class="glyphicon glyphicon-trash"></i></a>
+          </mat-list-item>
+        </mat-list>
 
-    </mat-radio-group>
-    <div class="example-selected-value" *ngIf="carte.length!=0">Pagamento selezionato: {{newcarta.numero}}</div>
-    <mat-accordion>
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Inserisci nuova carta di credito
-          </mat-panel-title>
+      </mat-radio-group>
+      <div class="example-selected-value" *ngIf="carte.length!=0">Pagamento selezionato: {{newcarta.numero}}</div>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Inserisci nuova carta di credito
+            </mat-panel-title>
 
-        </mat-expansion-panel-header>
+          </mat-expansion-panel-header>
 
-        <mat-form-field>
-          <input matInput type="text" [(ngModel)]="newcarta.numero" placeholder="Numero Carta">
-        </mat-form-field>
-        <br>
-        <mat-form-field>
-          <input matInput type="text" [(ngModel)]="newcarta.ccv" placeholder="CCV">
-        </mat-form-field>
-        <br>
-        <mat-form-field>
-          <input matInput type="text" [(ngModel)]="newcarta.scadenza" placeholder="Scadenza mm/aa">
-        </mat-form-field>
-        <br>&nbsp;
-        <a (click)="saveCarta(newcarta)">Aggiungi &nbsp;<span class="glyphicon glyphicon-plus"></span></a>
-      </mat-expansion-panel>
-      <!-- <mat-expansion-panel (opened)="panelOpenState = true"
-                            (closed)="panelOpenState = false">
-
-
-       </mat-expansion-panel>-->
-    </mat-accordion>
-    <br><br>
-    <button mat-button matStepperPrevious>Back</button>
-    <button mat-button matStepperNext>Next</button>
+          <mat-form-field>
+            <input matInput type="text" [(ngModel)]="newcarta.numero" placeholder="Numero Carta">
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <input matInput type="text" [(ngModel)]="newcarta.ccv" placeholder="CCV">
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <input matInput type="text" [(ngModel)]="newcarta.scadenza" placeholder="Scadenza mm/aa">
+          </mat-form-field>
+          <br>&nbsp;
+          <a (click)="saveCarta(newcarta)">Aggiungi &nbsp;<span class="glyphicon glyphicon-plus"></span></a>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <br><br>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperNext>Next</button>
     </div>
   </mat-step>
 
@@ -109,28 +104,29 @@
       <button type="button" class="btn btn-info" routerLink="/list-product">Visualizza prodotti</button>
     </div>
     <div *ngIf="listaCarrello.length!=0">
-    <mat-list>
-      <mat-list-item *ngFor="let prodotto of listaCarrello">
-        {{prodotto.quantitaDaAcquistare}}x &nbsp; {{prodotto.nome}}
+      <mat-list>
+        <mat-list-item *ngFor="let prodotto of listaCarrello">
+          {{prodotto.quantitaDaAcquistare}}x &nbsp; {{prodotto.nome}}
 
-      </mat-list-item>
-      <h3>TOTALE: &euro;&nbsp;{{totale}}</h3>
-      <br>
-      Tipo di Pagamento:
+        </mat-list-item>
+        <h3>TOTALE: &euro;&nbsp;{{totale}}</h3>
+        <br>
+        Tipo di Pagamento:
+        <br><br>
+        <i class="material-icons">credit_card</i> &nbsp;
+        Carta di Credito n°: {{newcarta.numero}}
+      </mat-list>
       <br><br>
-      <i class="material-icons">credit_card</i> &nbsp;
-      Carta di Credito n°: {{newcarta.numero}}
-    </mat-list>
-    <br><br>
-    <button mat-button matStepperPrevious>Back</button>
-    <button mat-button mwlConfirmationPopover
-            [title]="title"
-            [message]="message"
-            placement="right"
-            [confirmText]="confirmText"
-            [cancelText]="cancelText"
-            (confirm)="confirmClicked = true; acquistaProdotti(newcarta.id)"
-            (cancel)="cancelClicked = true">Acquista</button>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button mwlConfirmationPopover
+              [title]="title"
+              [message]="message"
+              placement="right"
+              [confirmText]="confirmText"
+              [cancelText]="cancelText"
+              (confirm)="confirmClicked = true; acquistaProdotti(newcarta.id)"
+              (cancel)="cancelClicked = true">Acquista
+      </button>
     </div>
   </mat-step>
 

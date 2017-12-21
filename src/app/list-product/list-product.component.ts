@@ -46,18 +46,6 @@ export class ListProductComponent implements OnInit {
     this.prodotto = prodotto;
   }
 
-
-  getListDisponibili() {
-    this.prodottiService.getListDisponibili().subscribe(data => {
-      this.listProdotti = data;
-    });
-  }
-
-  deleteProdotto(idProdotto) {
-    this.prodottiService.deleteProdotto(idProdotto);
-
-  }
-
   listaDisponibiliCategoria(categoria, disponibili) {
     this.prodottiService.categoriaDisponibili(categoria, disponibili).subscribe(data => {
       this.listProdotti = data;

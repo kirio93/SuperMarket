@@ -1,14 +1,12 @@
 <div class="offerte" style="position: relative;" *ngIf="listProdotti != []">
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
-    <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div *ngFor="let prodotto of listOfferta ; let k = index" [ngClass]="k == 0 ? 'item active' : 'item'">
         <img class="margini" src={{prodotto.imgOfferta}} alt="Event Image">
       </div>
     </div>
 
-    <!-- Left and right controls -->
     <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
@@ -38,22 +36,27 @@
   <div class="row">
     <div class="col-sm-4 col-md-3" *ngFor="let prodotto of listProdotti" (click)="selectProdotto(prodotto)">
       <div class="thumbnail">
-        <img class="sale" src="../../assets/sale.png" *ngIf="prodotto.offerta == 1"><img data-toggle="modal" data-target="#myModal" src="{{prodotto.img}}">
+        <img class="sale" src="../../assets/sale.png" *ngIf="prodotto.offerta == 1"><img data-toggle="modal"
+                                                                                         data-target="#myModal"
+                                                                                         src="{{prodotto.img}}">
         <div class="caption">
           <h3>{{prodotto.nome}}</h3>
 
-          <p><button mat-fab class="mat-raised-button" style="font-size: 12px!important;"
-                      mwlConfirmationPopover
-                      [title]="title"
-                      [message]="message"
-                      placement="right"
-                      [confirmText]="confirmText"
-                      [cancelText]="cancelText"
-                      (confirm)="confirmClicked = true; aggiungi(prodotto)"
-                      (cancel)="cancelClicked = true">Aggiungi</button>
+          <p>
+            <button mat-fab class="mat-raised-button" style="font-size: 12px!important;"
+                    mwlConfirmationPopover
+                    [title]="title"
+                    [message]="message"
+                    placement="right"
+                    [confirmText]="confirmText"
+                    [cancelText]="cancelText"
+                    (confirm)="confirmClicked = true; aggiungi(prodotto)"
+                    (cancel)="cancelClicked = true">Aggiungi
+            </button>
 
-            <span  class="prezzo">Prezzo: &euro; {{prodotto.prezzoUnitario}}</span>
-            <select  name="quantitaDaAcquistare" autocomplete="off" id="quantitaDaAcquistare" tabindex="1" class="a-native-dropdown" [(ngModel)]="prodotto.quantitaDaAcquistare">
+            <span class="prezzo">Prezzo: &euro; {{prodotto.prezzoUnitario}}</span>
+            <select name="quantitaDaAcquistare" autocomplete="off" id="quantitaDaAcquistare" tabindex="1"
+                    class="a-native-dropdown" [(ngModel)]="prodotto.quantitaDaAcquistare">
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -101,63 +104,3 @@
     </div>
   </div>
 </div>
-<!--
-<mat-card>
-
-  <mat-card-content >
-    <mat-grid-list cols="4" rowHeight="300px" class="prova">
-      <mat-grid-tile *ngFor="let prodotto of listProdotti" (click)="seletProdotto(prodotto)" class="marg">
-       <mat-card-header><h3 mat-line>{{prodotto.nome}}</h3>
-         </mat-card-header>
-        <mat-card-content><img [alt]="prodotto.marca" src="{{prodotto.img}}"></mat-card-content>
-        <mat-grid-tile-footer><span mat-line>{{prodotto.marca}}</span>
-          <span>Prezzo: &euro; &nbsp;{{prodotto.prezzoUnitario}} &nbsp;al&nbsp; {{prodotto.unita}}</span>
-        <br><button mat-fab class="mat-raised-button" (click)="acquisti()">Acquista
-          </button>
-        </mat-grid-tile-footer>
-      </mat-grid-tile>
-    </mat-grid-list>
-  </mat-card-content>
-</mat-card>
-
-
-
-
-
-
-<!--<mat-grid-list cols="5" rowHeight="1:1" gutterSize="4" >
-
-    <div class="media-body">
-
-
-      <mat-grid-tile-header>
-        <p class="media-heading"></p>
-      </mat-grid-tile-header>
-
-    </div>
-
-</mat-grid-list>
-<mat-grid-list cols="4" rowHeight="basicRowHeight">
-<div class="demo-grid-list"> <mat-grid-tile *ngFor="let prodotto of listProdotti" (click)="seletProdotto(prodotto)">
-  <mat-card> <mat-card-content class="demo-basic-list">
-    <mat-card-title>{{prodotto.nome}}</mat-card-title>
-
-
-         <div class="di">
-          <img class="img" src="{{prodotto.img}}"></div>
-          <mat-grid-tile-footer>
-            <p>
-              <span>Prezzo: &euro; &nbsp;{{prodotto.prezzoUnitario}} &nbsp;al&nbsp; {{prodotto.unita}}</span>
-            </p>
-
-          </mat-grid-tile-footer>
-
-
-    </mat-card-content></mat-card>
-</mat-grid-tile>
-
-</div>
-
-</mat-grid-list>
-
--->

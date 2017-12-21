@@ -50,14 +50,9 @@ export class CarrelloComponent implements OnInit {
     for (let p of this.listaCarrello) {
       this.totale = this.totale += (p.prezzoUnitario * p.quantitaDaAcquistare);
     }
-
+    let decimal: number = Number(parseFloat(this.totale.toString()).toFixed(2));
+    this.totale = decimal;
     console.log("totale: "+this.totale);
-  }
-
-  aggiungiCarello(prodotto) {
-    this.listaCarrello.push(prodotto);
-    localStorage.setItem("carrello", JSON.stringify(this.listaCarrello));
-    this.calcolaTotale();
   }
 
   eliminaCarello(prodotto) {
@@ -66,13 +61,6 @@ export class CarrelloComponent implements OnInit {
     console.log('i '+i);
     localStorage.setItem("carrello", JSON.stringify(this.listaCarrello));
     console.log('prodotto eliminato');
-    this.calcolaTotale();
-  }
-
-  modificaProdotto(prodotto) {
-    const i = this.listaCarrello.indexOf(prodotto);
-    this.listaCarrello.splice(1, i, prodotto);
-    console.log(' prodotto modificato ');
     this.calcolaTotale();
   }
 
