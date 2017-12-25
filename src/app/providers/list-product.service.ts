@@ -50,8 +50,8 @@ export class ListProductService {
    * @param categoria
    * @returns {Observable<Prodotto[]>}
    */
-  getCategoria(categoria):Observable<Prodotto[]>{
-    return this.http.get<Prodotto[]>(BACKEND_URL+'/getByCategoria/'+categoria,httpOptions);
+  findByCategoria(categoria):Observable<Array<Prodotto>> {
+    return this.http.get<Array<Prodotto>>(BACKEND_URL+'/prodotto/findByCategoria/'+categoria,httpOptions);
   }
 
   /**Ristituisce la lista dei prodotti acquistati precedentemente
@@ -96,7 +96,7 @@ export class ListProductService {
   }
 
   modificaProdotto(prodotto) {
-    return this.http.post(BACKEND_URL+"/saveOrUpdate", httpOptions);
+    return this.http.post(BACKEND_URL+"/prodotto/saveOrUpdate", httpOptions);
   }
 
   svuotaCarrello() {

@@ -23,7 +23,7 @@
 <div class="filtro" align="right" style="margin-right: 24px">
   Filtra per categoria
   <select class="a-spacing-top-mini" style="vertical-align: baseline;" name="sort" id="sort"
-          onchange="" aria-labelledby="sort_by_text">
+          onchange="" aria-labelledby="sort_by_text" [(ngModel)]="categoria" (click)="orderBy(categoria)">
     <option value="TUTTO">Tutto</option>
     <option value="PROD_CASA">Casa</option>
     <option value="ANIMALI">Animali</option>

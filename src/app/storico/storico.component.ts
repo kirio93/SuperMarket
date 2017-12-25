@@ -36,6 +36,14 @@ export class StoricoComponent implements OnInit {
           console.log(err);
         });
       }
+      let n =this.listaStorico.length;
+      for(let i=0; i<n; i++) {
+        for(let j=1; j < (n-i); j++) {
+          if (this.listaStorico[j-1].idFattura == this.listaStorico[j].idFattura) {
+            this.listaStorico.splice(j, 1);
+          }
+        }
+      }
     }, err => {
       console.error(err);
     });

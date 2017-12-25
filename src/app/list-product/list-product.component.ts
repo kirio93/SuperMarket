@@ -22,6 +22,7 @@ export class ListProductComponent implements OnInit {
   cancelText = 'Annulla';
   confirmClicked: boolean = false;
   cancelClicked: boolean = false;
+  categoria: string;
 
 
   constructor(private prodottiService: ListProductService,
@@ -31,6 +32,19 @@ export class ListProductComponent implements OnInit {
   ngOnInit() {
     this.getall();
 
+  }
+
+  orderBy(categoria) {
+    if (categoria!="TUTTO") {
+      this.prodottiService.findByCategoria(categoria).subscribe(data => {
+        console.log(data);
+        this.listProdotti = data;
+      }, err => {
+        console.error(err);
+      })
+    } else {
+      this.getall();
+    }
   }
 
 
